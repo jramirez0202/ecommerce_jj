@@ -27,13 +27,20 @@
   </div>
 
   <div class="field">
-    <%= form.label :ṕrice %>
-    <%= form.number_field :ṕrice %>
+    <%= form.label :price %>
+    <%= form.number_field :price %>
   </div>
 
   <div class="field">
     <%= form.label :sku %>
     <%= form.text_field :sku %>
+  </div>
+
+  <div class="field">
+    <%= form.label :kind, class:"label.id" %>
+    <ul class= "field-space">
+    <%= form.collection_check_boxes :category_ids, Category.all, :id, :name %>
+    </ul>
   </div>
 
   <div class="actions">
