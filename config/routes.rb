@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resource :cart, only:[:show, :update, :destroy]
   resources :products
   devise_for :admins 
   root to: 'home#index'
