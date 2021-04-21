@@ -4,12 +4,12 @@ one:
   name: MyString
   stock: 1
   description: MyText
-  ṕrice: 1
-  sku: 
+  price: 9.99
+  sku: MyString
 
 two:
   name: MyString
-  stock: 1
+  stock: 0
   description: MyText
-  ṕrice: 1
-  sku: 
+  price: 9.99
+  sku: MyString
