@@ -1,4 +1,6 @@
 class Order < ApplicationRecord
+  # belongs_to :user
+
   ORDER_PREFIX = 'PO'
   RANDOM_SIZE = 9
   belongs_to :user
