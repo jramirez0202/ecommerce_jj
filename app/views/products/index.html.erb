@@ -6,10 +6,12 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Category</th>
       <th>Stock</th>
       <th>Description</th>
       <th>price</th>
       <th>Sku</th>
+      
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +20,7 @@
     <% @products.each do |product| %>
       <tr>
         <td><%= product.name %></td>
+        <td><%= product.categories.name %></td>
         <td><%= product.stock %></td>
         <td><%= product.description %></td>
         <td><%= product.price %></td>
