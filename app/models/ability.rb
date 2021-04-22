@@ -8,19 +8,27 @@ class Ability
     #
       user ||= User.new # guest user (not logged in)
       if user.role == "buyer"
-        can :read, :all
+        can :read, Category, public: true
+      end
+
+      def initialize(admin)
+        admin ||= Admin.new # guest user (not logged in)
+          if admin.role == "moderador"
+            alias_action :read, :edit, :update, :create, :destroy, :to => :cru
+            can :cru, Category
+            can :cru, Product
+          else
+            admin.role == "admin"
+            can :magname, :all
+        end
       end
 
       # def initialize(admin)
-      # admin ||= Admin.new # guest user (not logged in)
-      #   if admin.role == "moderator"
-      #     alias_action :read, :edit, :update, :to => :cru
-      #     can :cru, :products
-      #   else
-      #     can :magname, :all
+      #   admin ||= Admin.new # guest user (not logged in)
+      #     if admin.role == "admin"
+      #       can :magname, :all
       #   end
       # end
-     
     # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions
