@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
-
-  resource :cart, only:[:show, :update, :destroy]
-  resources :products
-  devise_for :admins 
   root to: 'home#index'
+
+  resources :categories
+  resources :products
+
+  devise_for :admins 
   devise_for :users
   
 
-   resources :categories
-  authenticate :admin do
-   
+  
+  authenticate :user do
+  resource :cart, only:[:show, :update, :destroy]
   end
 
   
