@@ -45,11 +45,6 @@
 <% end %>
 
 
-<% if admin_signed_in?%>
-<h1> <p>Usuario actual</p> <%=current_admin.email%> </h1>
-<% end %>
-
-
 <div> 
     <%= link_to "User Sign in", new_user_session_path %>
     <%= link_to 'sign up', new_user_registration_path%>
@@ -57,9 +52,3 @@
 </div>
 
 <br>
-<br>
-<div> 
-    <%= link_to "Admin Sign in", new_admin_session_path %>
-    <%= link_to 'sign up', new_admin_registration_path%>
-    <%= link_to 'sign out', destroy_admin_session_path, method: :delete%>
-</div>

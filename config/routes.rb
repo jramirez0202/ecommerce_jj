@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :products
   resource :cart, only:[:show, :update, :destroy]
 
-  devise_for :admins 
+  # devise_for :admins 
   devise_for :users
 
   resource :cart, only: [:show, :update]
