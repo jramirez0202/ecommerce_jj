@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @categories = Category.all
+
   end
 
   # GET /products/1 or /products/1.json
@@ -66,6 +67,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :stock, :description, :price, :sku, categories_attributes:[:name, :category_id])
+      params.require(:product).permit(:name, :description, :stock, :price, :sku, {category_ids: []})
     end
 end

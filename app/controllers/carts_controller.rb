@@ -5,7 +5,7 @@ class CartsController < ApplicationController
       product_id = params[:cart][:product_id]
       quantity = params[:cart][:quantity]
   
-      current_order.add_prodcut(product_id, quantity)
+      current_order.add_product(product_id, quantity)
   
       redirect_to root_path, notice: "Product add to cart"
     end

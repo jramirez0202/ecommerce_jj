@@ -8,21 +8,28 @@ class Ability
     #
       user ||= User.new # guest user (not logged in)
       if user.role == "buyer"
-        can :read, Category, public: true
+        can :read, Product
+        can :read, Category
+        can :read, "cart_path"
+      elsif
+        user.role == "moderador"
+          alias_action :read, :edit, :update, :create, :destroy, :to => :cru
+          can :cru, Category
+          can :cru, Product
       end
 
-      def initialize(admin)
-        admin ||= Admin.new # guest user (not logged in)
-          if admin.role == "moderador"
-            alias_action :read, :edit, :update, :create, :destroy, :to => :cru
-            can :cru, Category
-            can :cru, Product
-          else
-            admin.role == "admin"
-            can :magname, :all
-        end
-      end
-
+      # def initialize(admin)
+      #   admin ||= Admin.new # guest user (not logged in)
+      #   if admin.role == "moderador"
+      #     alias_action :read, :edit, :update, :create, :destroy, :to => :cru
+      #     can :cru, Category
+      #     can :cru, Product
+      #   else
+      #     admin.role == "admin"
+      #     can :magname, :all
+      #   end
+      # end
+  end
       # def initialize(admin)
       #   admin ||= Admin.new # guest user (not logged in)
       #     if admin.role == "admin"
@@ -46,5 +53,5 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
-  end
+  
 end

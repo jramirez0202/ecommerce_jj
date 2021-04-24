@@ -1,10 +1,12 @@
 class Order < ApplicationRecord
   # belongs_to :user
+  before_create -> { generate_number(RANDOM_SIZE) }
 
   ORDER_PREFIX = 'PO'
   RANDOM_SIZE = 9
   belongs_to :user
-  before_create -> { generate_number(RANDOM_SIZE) }
+
+  
 
   has_many :order_items
   has_many :products, through: :order_items
@@ -22,14 +24,24 @@ class Order < ApplicationRecord
 
   #El numero debe ser aleatorio
   def random_candidate(size)
-    "#{ORDER_PREFIX}#{Array.new(size){rand(size)}.split}"
+    "#{ORDER_PREFIX}#{Array.new(size){rand(size)}.join}"
+  end  
+  
+  def compra_total
+    sum = 0
+    order_items.each do |item|
+      sum += item.price.to_i
+    end
+    update_attribute(:total, sum)
   end
 
   def add_product(product_id, quantity)
       product = Product.find(product_id)
-      if product && product.stock > 0
-        order_items.create(product_id: product_id, quantity: quantity, price: product.price)    
+      if product && product.stock > (0)
+        order_items.create(product_id: product_id, quantity: quantity, price: product.price)  
+        compra_total  
     end
   end
   
+
 end
