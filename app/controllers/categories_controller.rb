@@ -6,6 +6,7 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all
     # @products = Product.all
+    @users = User.all
   end
 
   # GET /categories/1 or /categories/1.json
@@ -67,6 +68,6 @@ class CategoriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def category_params
-      params.require(:category).permit(:name)
+      params.require(:category).permit(:name, users_attributes: [:id,:user_id, :role])
     end
 end

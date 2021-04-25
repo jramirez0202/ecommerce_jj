@@ -1,3 +1,28 @@
+<h1>Home Page</h1>
+<h2>Estas viendo una lista de productos en vitrina</h2>
+
+<%= link_to 'Categorias', categories_path%>
+<%= link_to 'Productos', products_path%>
+<%= link_to 'Cart', cart_path%>
+
+<% if user_signed_in? %>
+<h1> <p>Usuario actual</p> <%=current_user.email%> </h1>
+<% else %>
+    <p>Usuario actual es una visita</p>
+    <p>Hola bienvenido a nuestra tienda virtual donde podras conseguir productos electronicos,
+     <br> si quieres acceder a todos las funcionesde la página puedes regitrarte aqui <%= link_to 'Registrase', new_user_registration_path%> y realizar tus compras de manera online</p>
+<% end %>
+
+
+<div> 
+    <%= link_to "User Sign in", new_user_session_path %>
+    <%= link_to 'sign up', new_user_registration_path%>
+    <%= link_to 'sign out', destroy_user_session_path, method: :delete%>
+</div>
+
+<br>
+
+
 <div class="row">
   <div class="col-md-8 offset-2">
     <div class="container">
@@ -31,24 +56,4 @@
 </div>
 
 
-<h1>Home Page</h1>
-<p>Estas viendo una lista de productos en vitrina </p>
 
-<%= link_to 'Categorias', categories_path%>
-<%= link_to 'Productos', products_path%>
-<%= link_to 'Cart', cart_path%>
-
-<% if user_signed_in? %>
-<h1> <p>Usuario actual</p> <%=current_user.email%> </h1>
-<% else %>
-    <p>Usuario actual es una visita</p>
-<% end %>
-
-
-<div> 
-    <%= link_to "User Sign in", new_user_session_path %>
-    <%= link_to 'sign up', new_user_registration_path%>
-    <%= link_to 'sign out', destroy_user_session_path, method: :delete%>
-</div>
-
-<br>
