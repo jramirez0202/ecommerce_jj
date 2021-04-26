@@ -1,6 +1,6 @@
 ActiveAdmin.register Product do
     permit_params :name, :stock, :description, :price, :sku
-     actions :all, :except => [:show]
+     actions :all
 
 
     filter :name
@@ -38,6 +38,7 @@ ActiveAdmin.register Product do
       f.actions
       
     end
+
     
     # menu false
 end

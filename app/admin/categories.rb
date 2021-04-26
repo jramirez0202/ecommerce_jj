@@ -1,7 +1,7 @@
 ActiveAdmin.register Category do
         permit_params :name
          actions :all, :except => [:show]
-         config.remove_action_item(:destroy)
+        #  config.remove_action_item(:destroy)
     
         filter :name
       
