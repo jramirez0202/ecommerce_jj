@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resource :cart, only: [:show, :update]
 
-  delete 'admin/categories/:id', to: 'admin/categories#destroy', as: 'destroy_categorty'
+  # delete 'admin/categories/:id', to: 'admin/categories#destroy', as: 'destroy_categorty'
   authenticate :user do
 
   end
