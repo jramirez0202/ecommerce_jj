@@ -16,7 +16,7 @@ ActiveAdmin.setup do |config|
   #
   # Note: Aim for an image that's 21px high so it fits in the header.
   #
-  config.site_title_image = "administrador.png"
+  config.site_title_image = "app/assets/images/administrator.png"
 
   # == Default Namespace
   #

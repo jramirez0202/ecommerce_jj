@@ -7,6 +7,12 @@ class ProductsController < ApplicationController
     @products = Product.all
     @categories = Category.all
 
+    if params[:name].present?
+      @products = @products.where("name ILIKE ?", "%#{params[:name]}%")
+    end
+    if params[:category_id].present?
+      @categories = @categories.where("category_id = ?", params[:category_id])
+    end
   end
 
   # GET /products/1 or /products/1.json

@@ -37,6 +37,8 @@
                   <div class="card-text">
                     <div class="badge badge-primary"><%= categories.name if product.category_ids %></div>
                     <div>$<%= product.price %></div>
+                    <div>Stock:<%= product.stock %></div>
+                    <div>Sku:<%= product.sku %></div>
                   </div>
           <% end %>
                 <div class="row float-right">

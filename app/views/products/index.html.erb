@@ -2,6 +2,8 @@
 
 <h1>Products</h1>
 
+
+
 <table>
   <thead>
     <tr>
@@ -20,9 +22,7 @@
 
     <% @products.each do |product| %>
       <tr>
-        <% product.categories.sort.each do |categories| %>
-        
-
+      <% product.categories.sort.each do |categories| %>
         <td><%= product.name %></td>
         <td><%= categories.name %></td>
         <td><%= product.stock %></td>

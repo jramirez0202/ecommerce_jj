@@ -1,8 +1,14 @@
 ActiveAdmin.register Category do
         permit_params :name
-         actions :all, :except => [:show]
+        actions :all, :except => [:show]
         #  config.remove_action_item(:destroy)
-    
+
+        controller do
+          def destroy # => Because of this the 'Delete' button was still there
+            @categories = Category.find_by_slug(params[:id])
+            super
+          end    
+        end
         filter :name
       
         index do
