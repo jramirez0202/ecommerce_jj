@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
       @products = @products.where("name ILIKE ?", "%#{params[:name]}%")
     end
     if params[:category_id].present?
-      @categories = @categories.where("category_id = ?", params[:category_id])
+      @categories = @categories.where("name = ?", params[:name])
     end
   end
 
