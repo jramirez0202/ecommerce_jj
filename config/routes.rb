@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :categories
-  resources :products
+
+  resources :products do
+    resources :scores, except: [:show, :index]
+  end
+  
   resource :cart, only:[:show, :update, :destroy]
 
   # devise_for :admins 
