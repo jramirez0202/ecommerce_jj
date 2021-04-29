@@ -1,11 +1,11 @@
 class ProductsController < ApplicationController
   load_and_authorize_resource
   before_action :set_product, only: %i[ show edit update destroy ]
+  before_action :set_category, only: %i[ show edit update destroy ]
 
   # GET /products or /products.json
   def index
     @products = Product.all
-    @categories = Category.all
 
     if params[:sku].present?
       @products = @products.where("sku ILIKE ?", "%#{params[:sku]}%")
@@ -72,8 +72,12 @@ class ProductsController < ApplicationController
       @product = Product.find(params[:id])
     end
 
+    def set_categories
+      @categories = Category.all
+    end
+
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :description, :stock, :price, :sku, categories_attributes: [:name, {category_ids: []}])
+      params.require(:product).permit(:name, :description, :stock, :price, :sku, categories_attributes: [:name, category_ids: [])
     end
 end
