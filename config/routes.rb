@@ -9,7 +9,12 @@ Rails.application.routes.draw do
     resources :scores, except: [:show, :index]
   end
   
-  resource :cart, only:[:show, :update, :destroy]
+  resource :cart, only: [:show, :update, :destroy] do
+    member do
+      post :pay_with_paypal
+      get  :process_paypal_payment
+    end
+  end
 
   # devise_for :admins 
   devise_for :users

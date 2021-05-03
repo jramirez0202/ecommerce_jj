@@ -72,3 +72,4 @@ gem "faker", "~> 2.17"
 gem "activeadmin", "~> 2.9"
 
 gem 'active_skin'
+gem "activemerchant", "~> 1.119"

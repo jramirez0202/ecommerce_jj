@@ -1,5 +1,4 @@
 class Order < ApplicationRecord
-  # belongs_to :user
   before_create -> { generate_number(RANDOM_SIZE) }
 
   ORDER_PREFIX = 'PO'
@@ -10,7 +9,7 @@ class Order < ApplicationRecord
 
   has_many :order_items
   has_many :products, through: :order_items
-
+  has_many :payments
   #validamos que el numero de orden no se repita
   validates :number, uniqueness: true
 

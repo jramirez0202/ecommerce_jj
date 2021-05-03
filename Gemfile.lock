@@ -37,6 +37,11 @@ GEM
     activejob (5.2.5)
       activesupport (= 5.2.5)
       globalid (>= 0.3.6)
+    activemerchant (1.119.0)
+      activesupport (>= 4.2)
+      builder (>= 2.1.2, < 4.0.0)
+      i18n (>= 0.6.9)
+      nokogiri (~> 1.4)
     activemodel (5.2.5)
       activesupport (= 5.2.5)
     activerecord (5.2.5)
@@ -258,6 +263,7 @@ PLATFORMS
 DEPENDENCIES
   active_skin
   activeadmin (~> 2.9)
+  activemerchant (~> 1.119)
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.0.0)
   byebug
