@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # devise_for :admins 
   devise_for :users
 
-  resource :cart, only: [:show, :update]
+  resource :cart, only: [:show, :update, :destroy]
 
   # delete 'admin/categories/:id', to: 'admin/categories#destroy', as: 'destroy_categorty'
   authenticate :user do

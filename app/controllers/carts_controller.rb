@@ -15,6 +15,10 @@ class CartsController < ApplicationController
     end
   
     def destroy
-      
+      @order.destroy
+      respond_to do |format|
+      format.json {head :no_content}
+      format.js
+      end
     end
   end

@@ -37,11 +37,16 @@
     </div>
   
     <div class="field">
-      <%= form.label :category, class:"1" %>
-      <ul class= "field-space">
-      <%= form.collection_check_boxes :category_ids, Category.all, :id, :name %>
-      </ul>
-    </div>
+    <%= form.label :categories %>
+        <%= form.collection_check_boxes(:category_ids,
+                                        Category.all,
+                                        :id,
+                                        :name) do |b| %>
+        <%= b.label class:"label-checkbox" do%>
+            <%=b.check_box + b.text%>
+        <%end%>
+    <% end %>
+  </div>
   
     <div class="actions">
       <%= form.submit %>
