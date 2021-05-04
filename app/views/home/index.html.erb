@@ -8,9 +8,9 @@
 <% if user_signed_in? %>
 <h1> <p>Usuario actual</p> <%=current_user.email%> </h1>
 <% else %>
-    <p>Usuario actual es una visita</p>
+    <h2>Usuario actual es una visita </h2>
     <p>Hola bienvenido a nuestra tienda virtual donde podras conseguir productos electronicos,
-     <br> si quieres acceder a todos las funcionesde la página puedes regitrarte aqui <%= link_to 'Registrase', new_user_registration_path%> y realizar tus compras de manera online</p>
+     <br> si quieres acceder a todos las funcionesde la página puedes registrarte aqui <%= link_to 'Registrase', new_user_registration_path%> y realizar tus compras de manera online</p>
 <% end %>
 
 
