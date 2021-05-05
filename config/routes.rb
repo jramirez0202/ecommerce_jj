@@ -17,14 +17,14 @@ Rails.application.routes.draw do
   end
 
   # devise_for :admins 
-  devise_for :users
-
+  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
   resource :cart, only: [:show, :update, :destroy]
 
   # delete 'admin/categories/:id', to: 'admin/categories#destroy', as: 'destroy_categorty'
   authenticate :user do
-
   end
+
+  match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], as: :finish_signup
 
   
 

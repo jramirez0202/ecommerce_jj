@@ -38,7 +38,7 @@ gem 'cancancan'
 	gem 'jquery-rails'
 
 #Inicio de sesion con facebook
-  gem "omniauth"
+  gem "omniauth", "~> 1.9.1"
   gem "omniauth-facebook"
 
 
