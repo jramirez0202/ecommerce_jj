@@ -1,17 +1,16 @@
-<h1>Home Page</h1>
-<h2>Estas viendo una lista de productos en vitrina</h2>
 
-<%= link_to 'Categorias', categories_path%>
-<%= link_to 'Productos', products_path%>
-<%= link_to 'Cart', cart_path%>
 
-<% if user_signed_in? %>
+<!--<% if user_signed_in? %>
 <h1> <p>Usuario actual</p> <%=current_user.email%> </h1>
 <% else %>
     <h2>Usuario actual es una visita </h2>
     <p>Hola bienvenido a nuestra tienda virtual donde podras conseguir productos electronicos,
      <br> si quieres acceder a todos las funcionesde la página puedes registrarte aqui <%= link_to 'Registrase', new_user_registration_path%> y realizar tus compras de manera online</p>
-<% end %>
+<% end %> -->
+
+  <div>
+    <%= render "shared/carrusel" %>
+  </div>
 
 
 <div> 
@@ -23,13 +22,14 @@
 <br>
 
 
-<div class="row">
+<div class="row container-row">
   <div class="col-md-8 offset-2">
     <div class="container">
+    <div class="sale">Ofertas</div>
       <div class="row">
         <% @products.each do |product| %>
             <% product.categories.sort.each do |categories| %>
-              <div class="col-md-3">
+              <div class="col-md-3 cards">
                 <div class="card">
                   <img class="card-img-top" src="https://www.panafoto.com/media/catalog/product/cache/6517c62f5899ad6aa0ba23ceb3eeff97/1/3/135129.jpg" alt="<%= product.name%>"/>
                   <div class="card-block">
