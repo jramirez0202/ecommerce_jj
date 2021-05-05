@@ -59,7 +59,7 @@
     padding: 67px;
     margin: 2%;
 }
-.sale{
+.sale, .title-category{
     text-align: center;
     font-size: 50px;
     margin-bottom: 45px;
@@ -79,4 +79,30 @@ body{
 .tittle-carousel > h1{
     font-size: 60px;
     font-weight: 600;
+}
+.container-category{
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    width: 20%;
+}
+.circle-category{
+    display: inline-block;
+    background-color: #f7f2f2;
+    padding: 45px 40px;
+    border-radius: 100px;
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,.1),0 2px 12px 0 rgba(0,0,0,.2);
+    margin-bottom: 10px;
+}
+
+.img-category{
+    font-size: 25px;
+    height: 114px;
+    width: 127px;
+    display: inline-block;
+}
+.category-index{
+    background-color: #fff;
+    padding: 67px;
+    margin: 2%;
 }

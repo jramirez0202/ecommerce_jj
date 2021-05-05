@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Categories</h1>
+<h1 class="title-category">Categories</h1>
 
 <table>
   <thead>
@@ -12,14 +12,21 @@
   <tbody>
     <% @categories.each do |category| %>
       <tr>
-        <div class="card" style="width: 18rem;">
+      <div class="container-category">
+        <div class="circle-category">
+          <div><img src="https://oscarsistemas.milaulas.com/pluginfile.php/2112/course/summary/ele.jpg" class="img-category" alt="..."></div>
+          
+        </div>
+        <div><%= category.name %></div>
+      </div>
+        <!--<div class="card" style="width: 18rem;">
           <img src="https://oscarsistemas.milaulas.com/pluginfile.php/2112/course/summary/ele.jpg" class="card-img-top" alt="...">
           <div class="card-body">
             <h2 class="card-title"><%= category.name %></h2>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
-        </div>
+        </div>-->
         
         <% @users.each do |user| %>
           <% if user == "moderador" %>
@@ -33,7 +40,6 @@
     <% end %>
   </tbody>
 </table>
-<%= %>
-<br>
+
 
 

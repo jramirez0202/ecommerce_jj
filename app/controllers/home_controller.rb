@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   def index
     @products = Product.all
     @categories = Category.all
+    @users = User.all
   end
 
   def name
