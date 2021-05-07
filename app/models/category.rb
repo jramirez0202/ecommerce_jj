@@ -1,6 +1,9 @@
 class Category < ApplicationRecord
+
+
   has_and_belongs_to_many :products, dependent: :destroy
 	validates :name, presence: true
+
 
 	def children
 		Category.where(category_id: self.id)
@@ -35,5 +38,4 @@ class Category < ApplicationRecord
 			# has_many :product_categories, dependent: :destroy
 			# has_many :products, through: :product_categories
 
-			
 end

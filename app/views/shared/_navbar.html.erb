@@ -1,6 +1,14 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <%= link_to 'CheckPoint', root_path, class: "nav-link"%>
+
+    <div class= "nav-link">
+      <% if user_signed_in? %>
+      <%= current_user.email %>
+    <% end %>
+    
+    </div>
+  
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

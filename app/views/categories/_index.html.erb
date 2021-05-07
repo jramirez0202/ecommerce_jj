@@ -12,13 +12,13 @@
   <tbody>
     <% @categories.each do |category| %>
       <tr>
-      <div class="container-category">
-        <div class="circle-category">
-          <div><img src="https://oscarsistemas.milaulas.com/pluginfile.php/2112/course/summary/ele.jpg" class="img-category" alt="..."></div>
-          
+        <div class="container-category">
+          <div class="circle-category">
+            <div>
+              <%= category.image_url%>
+            </div>
+          <div><%= link_to "#{category.name}", category %></div>
         </div>
-        <div><%= category.name %></div>
-      </div>
         <!--<div class="card" style="width: 18rem;">
           <img src="https://oscarsistemas.milaulas.com/pluginfile.php/2112/course/summary/ele.jpg" class="card-img-top" alt="...">
           <div class="card-body">
@@ -27,7 +27,7 @@
             <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
         </div>-->
-        
+        <% end %>
         <% @users.each do |user| %>
           <% if user == "moderador" %>
             <td><%= link_to 'Show', category %></td>
@@ -37,7 +37,7 @@
           <% end %>
         <% end %>
       </tr>
-    <% end %>
+    
   </tbody>
 </table>
 
