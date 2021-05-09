@@ -46,7 +46,14 @@ ActiveRecord::Schema.define(version: 2021_05_07_134652) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "category_id"
-    t.string "image_url"
+    t.string "photo_file_name"
+    t.string "photo_content_type"
+    t.bigint "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.string "string_file_name"
+    t.string "string_content_type"
+    t.bigint "string_file_size"
+    t.datetime "string_updated_at"
     t.index ["category_id"], name: "index_categories_on_category_id"
   end
 

@@ -15,7 +15,7 @@
         <div class="container-category">
           <div class="circle-category">
             <div>
-              <%= category.image_url%>
+              <%= image_tag category.photo.url(:thumb)%>
             </div>
           <div><%= link_to "#{category.name}", category %></div>
         </div>

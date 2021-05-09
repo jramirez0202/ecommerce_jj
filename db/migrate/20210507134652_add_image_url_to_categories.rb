@@ -1,5 +1,5 @@
 class AddImageUrlToCategories < ActiveRecord::Migration[5.2]
   def change
-    add_column :categories, :image_url, :string
+    add_attachment :categories, :photo, :string
   end
 end

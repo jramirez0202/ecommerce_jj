@@ -41,7 +41,8 @@ gem 'cancancan'
   gem "omniauth", "~> 1.9.1"
   gem "omniauth-facebook"
 
-
+	
+gem "paperclip"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
