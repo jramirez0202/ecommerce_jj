@@ -29,8 +29,10 @@
                       <div class="badge badge-primary"><%= categories.name if product.category_ids %></div>
                       <div>$<%= product.price %></div>
                       <!--El stock no deberia de verlo el comprador-->
-                      <div><% product.stock %></div>
                       <div>Sku:<%= product.sku %></div>
+                      <% product.scores.sort.each do |score| %>
+                      <div>Score:<%= score.rating %></div>
+                      <% end %>
                     </div>
                   <div class="row float-right">
                     <div class="col-md-12">
