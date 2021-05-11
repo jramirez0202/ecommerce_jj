@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_07_134652) do
+ActiveRecord::Schema.define(version: 2021_05_11_002603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,6 +121,14 @@ ActiveRecord::Schema.define(version: 2021_05_07_134652) do
     t.string "sku"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.bigint "image_file_size"
+    t.datetime "image_updated_at"
+    t.string "string_file_name"
+    t.string "string_content_type"
+    t.bigint "string_file_size"
+    t.datetime "string_updated_at"
   end
 
   create_table "scores", force: :cascade do |t|

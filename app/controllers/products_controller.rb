@@ -18,6 +18,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1 or /products/1.json
   def show
+    @scores = Score.where(product_id: @product.id).order("created_at DESC")
   end
 
   # GET /products/new
@@ -79,6 +80,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :description, :stock, :price, :sku,{category_ids: []}, categories_attributes: [:name])
+      params.require(:product).permit(:name, :description, :stock, :price, :image, :sku,{category_ids: []}, categories_attributes: [:name])
     end
 end

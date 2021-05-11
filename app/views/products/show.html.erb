@@ -1,31 +1,68 @@
 <p id="notice"><%= notice %></p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-4">
+        <%= image_tag @product.image.url(:medium) %>
+          <div class="table-responsive">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <td><strong>Nombre:</strong></td>
+                  <td><%= @product.name %></td>
+                </tr>
+                <tr>
+                  <td><strong>Stock:</strong></td>
+                  <td><%= @product.stock %></td>
+                </tr>
+                <tr>
+                  <td><strong>Descripción:</strong></td>
+                  <td><%= @product.description %></td>
+                </tr>
+                <tr>
+                  <td><strong>Precio:</strong></td>
+                  <td><%= @product.price %></td>
+                </tr>
+                <tr>
+                  <td><strong>Sku:</strong></td>
+                  <td><%= @product.sku %></td>
+                </tr>
+                <tr>
+                  <td><strong>Rating:</strong></td>
+                  <td><% @product.scores.sort.each do |score| %>
+                      <%= score.rating %>
+                    <% end %>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          <%= link_to "Vota por este producto", new_product_score_path(@product) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+<div class="col-md-7 col-md-offset-1">
+        <h1 class="review_title"><%= @product.name %></h1>
+        <p><%= @product.description %></p>
 
-<p>
-  <strong>Stock:</strong>
-  <%= @product.stock %>
-</p>
+        <% if @scores.blank? %>
+          <h3>Se el primero en calificar este producto</h3>
+          <%= link_to "Write Review", new_product_score_path(@product), class: "btn btn-danger" %>
+        <% else %>
+          <% @scores.each do |score| %>
+            <div class="reviews">
+              <div class="star-rating" data-score= <%= score.rating %> ></div>
+              <p><%= score.comment %></p>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
-
-<p>
-  <strong>Sku:</strong>
-  <%= @product.sku %>
-</p>
-
-<%= link_to "Vota por este producto", new_product_score_path(@product) %>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
