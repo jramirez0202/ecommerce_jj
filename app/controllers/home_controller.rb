@@ -3,6 +3,12 @@ class HomeController < ApplicationController
     @products = Product.all
     @categories = Category.all
     @users = User.all
+
+    if @scores.blank?
+      @average_score = 0
+    else
+      @average_score = @scores.average(:rating).round(2)
+    end
   end
 
   def name

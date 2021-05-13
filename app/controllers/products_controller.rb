@@ -19,6 +19,12 @@ class ProductsController < ApplicationController
   # GET /products/1 or /products/1.json
   def show
     @scores = Score.where(product_id: @product.id).order("created_at DESC")
+
+    if @scores.blank?
+      @average_score = 0
+    else
+      @average_score = @scores.average(:rating).round(2)
+    end
   end
 
   # GET /products/new

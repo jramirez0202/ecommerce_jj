@@ -4,6 +4,8 @@
     <div class="row">
       <div class="col-md-4">
         <%= image_tag @product.image.url(:medium) %>
+        <div class="star-rating" data-score= <%= @average_score %> ></div>
+          <em><%= "Promedio en base a #{@scores.length} calificaciones" %></em>
           <div class="table-responsive">
             <table class="table">
               <tbody>
@@ -36,7 +38,6 @@
                 </tr>
               </tbody>
             </table>
-          <%= link_to "Vota por este producto", new_product_score_path(@product) %>
         </div>
       </div>
     </div>
@@ -49,12 +50,14 @@
 
         <% if @scores.blank? %>
           <h3>Se el primero en calificar este producto</h3>
-          <%= link_to "Write Review", new_product_score_path(@product), class: "btn btn-danger" %>
+          <%= link_to "Califica", new_product_score_path(@product), class: "btn btn-danger" %>
         <% else %>
+        <%= link_to "Vota por este producto", new_product_score_path(@product) %>
           <% @scores.each do |score| %>
             <div class="reviews">
+              <p>Usuario: </p>
               <div class="star-rating" data-score= <%= score.rating %> ></div>
-              <p><%= score.comment %></p>
+              <p> Comentario: <%= score.comment %></p>
             </div>
           <% end %>
         <% end %>
@@ -66,3 +69,13 @@
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
+
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>
