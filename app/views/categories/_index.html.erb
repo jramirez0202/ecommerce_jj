@@ -17,8 +17,9 @@
             <div>
               <%= image_tag category.photo.url(:thumb)%>
             </div>
-          <div><%= link_to "#{category.name}", products_path %></div>
+      
         </div>
+            <div class="name-category"><%= link_to "#{category.name}", products_path %></div>
         <!--<div class="card" style="width: 18rem;">
           <img src="https://oscarsistemas.milaulas.com/pluginfile.php/2112/course/summary/ele.jpg" class="card-img-top" alt="...">
           <div class="card-body">

@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   before_action :authenticate_user!
-  
+
     def update
       product_id = params[:cart][:product_id]
       quantity = params[:cart][:quantity]
@@ -15,11 +15,10 @@ class CartsController < ApplicationController
     end
   
     def destroy
-      @order.destroy
-      respond_to do |format|
-      format.json {head :no_content}
-      format.js
-      end
+      # @order = Order.find(params[:id])
+      # @order.destroy
+ 
+      # redirect_to cart_path
     end
 
 
@@ -79,5 +78,16 @@ class CartsController < ApplicationController
       else
         redirect_to root_url, notice: 'Problemas con tu compra'
       end
+    end
+
+    private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_cart
+      @cart = Cart.find(params[:id])
+    end
+
+    # Only allow a list of trusted parameters through.
+    def cart_params
+      params.require(:cart).permit(:name, :photo, users_attributes: [:id,:user_id, :role])
     end
 end

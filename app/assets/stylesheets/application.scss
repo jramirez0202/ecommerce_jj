@@ -67,7 +67,7 @@
     font-family: initial;
 }
 body{
-    background-color: #f7f2f2;
+    background-color: #a7b094;
 }
 .tittle-carousel{
     position: absolute;
@@ -85,6 +85,8 @@ body{
     display: inline-block;
     vertical-align: top;
     width: 20%;
+    margin-top: 34px;
+
 }
 .circle-category{
     display: inline-block;
@@ -93,8 +95,13 @@ body{
     border-radius: 100px;
     box-shadow: 0 2px 3px 0 rgba(0,0,0,.1),0 2px 12px 0 rgba(0,0,0,.2);
     margin-bottom: 10px;
+    max-width: 80%;
 }
 
+.circle-category > div > img{
+    max-height: 58px;
+    max-width: 50px;
+}
 .img-category{
     font-size: 25px;
     height: 114px;

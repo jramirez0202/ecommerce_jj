@@ -1,4 +1,5 @@
 class ScoresController < ApplicationController
+  
   before_action :set_score, only: [:show, :edit, :update, :destroy]
   before_action :set_product
   before_action :authenticate_user!
@@ -19,6 +20,10 @@ class ScoresController < ApplicationController
   end
 
   def create
+
+    # @userScore = Score.find_by(user_id: current_user.id, product_id: params[:porduct_id])
+    # @scoreCreate = Score.create(user_id: current_user.id, product_id: params[:porduct_id])
+
     @score = Score.new(score_params)
     @score.user_id = current_user.id
     @score.product_id = @product.id

@@ -12,7 +12,7 @@
       <th>price</th>
       <th>Sku</th>
       <th>Score</th>
-      
+      <th>Producto</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -31,9 +31,12 @@
               <%= score.rating %>
             <% end %>
           </td>
-          <td><%= link_to 'Show', product %></td>
-          <td><%= link_to 'Califica', new_product_score_path(product)%></td>
-          <td><%= link_to 'Destroy', product, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Ver producto', product %></td>
+
+          <% if current_user.role == "moderador"%>
+            <td><%= link_to 'Destroy', product, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+          
       </tr>
       <% end %>
     <% end %>

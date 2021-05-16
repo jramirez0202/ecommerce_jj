@@ -38,9 +38,11 @@ gem 'cancancan'
 	gem 'jquery-rails'
 
 #Inicio de sesion con facebook
-  gem "omniauth", "~> 1.9.1"
-  gem "omniauth-facebook"
+gem 'omniauth-facebook'
+gem "omniauth", "~> 1.9.1" 
 
+#paginado de comentarios
+gem 'pagy'
 	
 gem "paperclip"
 # Use Capistrano for deployment

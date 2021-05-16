@@ -4,8 +4,8 @@
     <div class="row">
       <div class="col-md-4">
         <%= image_tag @product.image.url(:medium) %>
-        <div class="star-rating" data-score= <%= @average_score %> ></div>
-          <em><%= "Promedio en base a #{@scores.length} calificaciones" %></em>
+            <div class="star-rating" data-score= <%= @average_score %> ></div>
+            <em><%= "Promedio en base a #{@scores.length} calificaciones" %></em> 
           <div class="table-responsive">
             <table class="table">
               <tbody>
@@ -31,9 +31,9 @@
                 </tr>
                 <tr>
                   <td><strong>Rating:</strong></td>
-                  <td><% @product.scores.sort.each do |score| %>
-                      <%= score.rating %>
-                    <% end %>
+                  <td>
+                    <div class="star-rating" data-score= <%= @average_score %> ></div>
+                    <em><%= "Promedio en base a #{@scores.length} calificaciones" %></em> 
                   </td>
                 </tr>
               </tbody>
@@ -52,7 +52,10 @@
           <h3>Se el primero en calificar este producto</h3>
           <%= link_to "Califica", new_product_score_path(@product), class: "btn btn-danger" %>
         <% else %>
-        <%= link_to "Vota por este producto", new_product_score_path(@product) %>
+        <% if current_user %>
+          <%= link_to "Vota por este producto", new_product_score_path(@product) %>
+        <% end %>
+        
           <% @scores.each do |score| %>
             <div class="reviews">
               <p>Usuario: </p>
@@ -65,6 +68,8 @@
     </div>
   </div>
 </div>
+
+<%== pagy_nav(@pagy)%>
 
 
 <%= link_to 'Edit', edit_product_path(@product) %> |

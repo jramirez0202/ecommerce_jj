@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   # GET /products or /products.json
   def index
     @products = Product.all
+    @users = User.all
 
 
     if params[:sku].present?
@@ -18,6 +19,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1 or /products/1.json
   def show
+    @pagy, @scores = pagy(Score.all)
     @scores = Score.where(product_id: @product.id).order("created_at DESC")
 
     if @scores.blank?
@@ -86,6 +88,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :description, :stock, :price, :image, :sku,{category_ids: []}, categories_attributes: [:name])
+      params.require(:product).permit(:name, :description, :stock, :price, :image, :sku,{category_ids: []}, categories_attributes: [:name], users_attributes: [:role])
     end
 end
