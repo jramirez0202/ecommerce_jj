@@ -43,6 +43,14 @@
     </div>
   </div>
 </div>
+  <div>
+    <%= form_for :cart, url: cart_path, method: :put do |f| %>
+      <%= f.hidden_field :product_id, value: @product.id %>
+      <%= f.hidden_field :quantity, value: 1 %>
+      <%= f.submit "Add to cart", notice: "Agregado al carrito "%>
+    <% end %>
+  </div>
+                      
 
 <div class="col-md-7 col-md-offset-1">
         <h1 class="review_title"><%= @product.name %></h1>

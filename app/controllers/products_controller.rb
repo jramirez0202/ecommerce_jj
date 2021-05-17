@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @users = User.all
+    
 
 
     if params[:sku].present?

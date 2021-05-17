@@ -1,5 +1,7 @@
 class CartsController < ApplicationController
   before_action :authenticate_user!
+  require 'sendgrid-ruby'
+  include SendGrid
 
     def update
       product_id = params[:cart][:product_id]
@@ -12,20 +14,14 @@ class CartsController < ApplicationController
   
     def show
       @order = current_order
+      @ordder_items = @order.order_items
     end
   
-    def destroy
-      # @order = Order.find(params[:id])
-      # @order.destroy
- 
-      # redirect_to cart_path
-    end
 
 
     def pay_with_paypal
     order = current_order
-    #price must be in cents
-    price = order.total * 100
+    price = order.total * 10
 
     response = EXPRESS_GATEWAY.setup_purchase(price,
       ip: request.remote_ip,
@@ -74,10 +70,24 @@ class CartsController < ApplicationController
           order.save!
           payment.save!
         end
-        redirect_to root_url, notice: 'Compra exitosa'
+        redirect_to root_path, notice: 'Compra exitosa'
+        
+        from = Email.new(email: 'johkcolom@gmail.com')
+        subject = 'Hello World from the Twilio SendGrid Ruby Library'
+        to = Email.new(email: 'johkcolom@gmail.com')
+        content = Content.new(type: 'text/plain', value: 'some text here')
+        mail = SendGrid::Mail.new(from, subject, to, content)
+        # puts JSON.pretty_generate(mail.to_json)
+        puts mail.to_json
+      
+        
+        sg = SendGrid::API.new(api_key: ENV['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'])
+        response = sg.client.mail._('send').post(request_body: mail.to_json)
+        
       else
-        redirect_to root_url, notice: 'Problemas con tu compra'
+        redirect_to root_path, alert: 'Problemas con tu compra'
       end
+
     end
 
     private

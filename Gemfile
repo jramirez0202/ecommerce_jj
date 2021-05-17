@@ -41,6 +41,15 @@ gem 'cancancan'
 gem 'omniauth-facebook'
 gem "omniauth", "~> 1.9.1" 
 
+
+#Inicio de sesion con google
+gem 'dotenv-rails'
+# gem "omniauth"
+gem 'omniauth-google-oauth2'
+
+#para mejor proteccion google
+gem "omniauth-rails_csrf_protection"
+
 #paginado de comentarios
 gem 'pagy'
 	
@@ -82,3 +91,7 @@ gem "activeadmin", "~> 2.9"
 
 gem 'active_skin'
 gem "activemerchant", "~> 1.119"
+
+gem "mailgun-ruby", "~> 1.2"
+
+gem "sendgrid-ruby"

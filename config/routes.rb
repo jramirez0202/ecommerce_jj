@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
   
+  get 'order_items/create'
+  get 'order_items/update'
+  get 'order_items/destroy'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root to: 'home#index'
 
   resources :categories
-  resources :orders
+  resources :order_items
+  resources :order
 
   # delete 'orders/destroy/:id', to: 'orders#destroy', as: 'destroy_order'
   resources :products do
@@ -30,7 +34,7 @@ Rails.application.routes.draw do
 
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], as: :finish_signup
 
-  
+  # get '/auth/provider/callback', to: 'sessions#omniauth'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
