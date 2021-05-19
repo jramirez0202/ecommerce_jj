@@ -2,6 +2,7 @@ class CartsController < ApplicationController
   before_action :authenticate_user!
   require 'sendgrid-ruby'
   include SendGrid
+  require 'json'
 
     def update
       product_id = params[:cart][:product_id]
@@ -15,6 +16,14 @@ class CartsController < ApplicationController
     def show
       @order = current_order
       @ordder_items = @order.order_items
+    end
+
+    def destroy
+      @order = current_order
+      @order_item = @order.order_items.find(params[:id])
+      @order_item.destroy
+      @order_items = current_order.order_items
+      redirect_to carts_path
     end
   
 

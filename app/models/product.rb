@@ -1,4 +1,7 @@
 class Product < ApplicationRecord
+
+    validates :name, :sku, :stock, :description, :price, presence: true
+
     has_and_belongs_to_many :categories
     belongs_to :user, optional: true
 	has_many :scores
@@ -12,22 +15,8 @@ styles: { medium: "300x300>", thumb: "100x100>" },
 
 # Validación para evitar ataques y solo se suban los archivos de unas extensiones predefinidas
 validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/ 
-    
 
 
 
-
-
-    # def self.catalogo
-		# 	products = Product.all
-		# 	catalogo = []
-		# 	products.each do |product|    
-		# 	suma = product.products_variants.map{|x| x.stock}.sum
-		# 	if suma > 0
-		# 		catalogo << product
-		# 	end
-		# end
-		# catalogo
-		# end
 end
 

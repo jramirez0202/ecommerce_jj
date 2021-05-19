@@ -33,11 +33,12 @@
           </td>
           <td></td>
           <td><%= link_to 'Ver producto', product %></td>
-
-          <% if current_user.role == "moderador"%>
-            <td><%= link_to 'Destroy', product, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
-          
+            <% @users.each do |user| %>
+              <% if user.role == "moderador"%>
+                <td><%= link_to 'Destroy', product, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% end %>
+            <% end %>
+            
       </tr>
       <% end %>
     <% end %>

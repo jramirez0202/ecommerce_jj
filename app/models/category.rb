@@ -1,5 +1,6 @@
 class Category < ApplicationRecord
 
+
 validates :name, presence: true
 
 # Tiene un archivo adjunto llamado cover con dos versiones de tamaño

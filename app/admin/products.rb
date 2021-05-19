@@ -1,5 +1,5 @@
 ActiveAdmin.register Product do
-    permit_params :name, :stock, :description, :price, :sku
+    permit_params :name, :stock, :description, :price, :sku, :image, :category_ids
      actions :all
 
 
@@ -9,7 +9,6 @@ ActiveAdmin.register Product do
       selectable_column
       id_column
       column :name
-      column :user
       actions
     end
   
@@ -20,6 +19,7 @@ ActiveAdmin.register Product do
         row :description
         row :price
         row :sku
+        row :image
       end
     end
   
@@ -32,6 +32,7 @@ ActiveAdmin.register Product do
         f.input :description
         f.input :price
         f.input :sku
+        f.input :image
         # f.input :user_id
       end
   
