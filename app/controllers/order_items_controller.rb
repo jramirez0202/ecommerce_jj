@@ -1,6 +1,4 @@
 class OrderItemsController < ApplicationController
-require 'sendgrid-ruby'
-include SendGrid
 
   def create
     @order = current_order
@@ -18,20 +16,13 @@ include SendGrid
   end
 
   def destroy
-    # @product.destroy
+    @order = current_order
+    @order_item = @order.order_items.find(params[:id])
     @order_item.destroy
-    respond_to do |format|
-      format.json { head :no_content }
-    end
+    @order_items = current_order.order_items
+    redirect_to carts_path
   end
 
-  # def destroy
-  #   @order = current_order
-  #   @order_item = @order.order_items.find(params[:id])
-  #   @order_item.destroy
-  #   @order_items = current_order.order_items
-  #   redirect_to carts_path
-  # end
 
   private
 
