@@ -19,18 +19,18 @@ class OrderItemsController < ApplicationController
     @order = current_order
     @order_item = @order.order_items.find(params[:id])
     @order_item.destroy
-    @order_items = current_order.order_items
-    redirect_to carts_path
+    redirect_to cart_path
   end
 
 
   private
 
-  def set_category
-    @order_item = OrderItem.find(params[:id])
-  end
+  
+    def set_order_item
+      @order_item = OrderItem.find(params[:id])
+    end
 
-  def order_params
-    params.require(:order_item).permit(:product_id, :quantity)
-  end
+    def order_params
+      params.require(:order_item).permit(:product_id, :quantity, :order_id)
+    end
 end

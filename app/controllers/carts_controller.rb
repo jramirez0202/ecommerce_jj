@@ -15,9 +15,10 @@ class CartsController < ApplicationController
   
     def show
       @order = current_order
-      @ordder_items = @order.order_items
+      @order_items = @order.order_items
     end
 
+  
     def destroy
       @order = current_order
       @order_item = @order.order_items.find(params[:id])
@@ -25,8 +26,6 @@ class CartsController < ApplicationController
       @order_items = current_order.order_items
       redirect_to carts_path
     end
-  
-
 
     def pay_with_paypal
     order = current_order

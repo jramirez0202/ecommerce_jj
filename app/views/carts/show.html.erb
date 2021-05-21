@@ -5,37 +5,41 @@
         <div class="clearfix"></div>
     </div>
     <div class="card-body">
-      <% @order.order_items.includes(:product).each do |item| %>
+      <% @order.order_items.includes(:product).each do |order_item| %>
         <div class="row">
             <div class="col-xs-2 col-md-2">
                 <img class="img-responsive" src="https://www.panafoto.com/media/catalog/product/cache/6517c62f5899ad6aa0ba23ceb3eeff97/1/3/135129.jpg" alt="prewiew">
             </div>
             <div class="col-xs-4 col-md-6">
-              <h4 class="product-name"><strong><%= item.product.name %></strong></h4>
-              <h4><small> <%= item.product.description %></small></h4>
+              <h4 class="product-name"><strong><%= order_item.product.name %></strong></h4>
+              <h4><small> <%= order_item.product.description %></small></h4>
             </div>
             <div class="col-xs-6 col-md-4 row">
                 <div class="col-xs-6 col-md-6 text-right" style="padding-top: 5px">
-                  <h6><strong><%= item.price%> <span class="text-muted">x</span></strong></h6>
+                  <h6><strong><%= order_item.price%> <span class="text-muted">x</span></strong></h6>
                 </div>
                 <div class="col-xs-4 col-md-4">
-                  <%= item.quantity %>
+                  <%= order_item.quantity %>
                 </div>
                 <div class="col-xs-2 col-md-2">
                 <%= @order.created_at%>
                 </div>
             </div>
             <div>
-              <%= link_to 'Destroy', order_items_destroy_path(@order_item), method: :delete, class: "btn btn-primary", data: { confirm: 'Are you sure?' } %>
+              <%= link_to 'Destroy', order_item_path(order_item.id), remote: true, method: :delete, class: "btn btn-primary", data: { confirm: 'Are you sure?' } %>
             </div>
         </div>
         <% end %>
-        <div class="card-footer">
-          <%= link_to 'Pay', pay_with_paypal_cart_path, method: :post, class: 'btn btn-primary pull-rigth' %>
-          <div class= 'pull-rigth' style= 'margin: 5px'>
-          Total: $<b><%= @order.total %></b>
+        <% if @order.total  %>
+          <div class="card-footer">
+            <%= link_to 'Pagar', pay_with_paypal_cart_path, method: :post, class: 'btn btn-primary pull-rigth' %>
+            <div class= 'pull-rigth' style= 'margin: 5px'>
+              Total: $<b><%= @order.total %></b>
+            </div>
+            <% else %>
+            <p>Tu carrito esta vacio</p>
+            <% end %>
           </div>
-        </div>
     
         </div>
 

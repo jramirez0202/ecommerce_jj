@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :addresses
   get 'order_items/create'
   get 'order_items/update'
   get 'order_items/destroy'
