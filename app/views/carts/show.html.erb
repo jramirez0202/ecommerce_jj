@@ -8,7 +8,7 @@
       <% @order.order_items.includes(:product).each do |order_item| %>
         <div class="row">
             <div class="col-xs-2 col-md-2">
-                <img class="img-responsive" src="https://www.panafoto.com/media/catalog/product/cache/6517c62f5899ad6aa0ba23ceb3eeff97/1/3/135129.jpg" alt="prewiew">
+                <%= image_tag order_item.product.image.url(:thumb)%>
             </div>
             <div class="col-xs-4 col-md-6">
               <h4 class="product-name"><strong><%= order_item.product.name %></strong></h4>
@@ -30,6 +30,7 @@
             </div>
         </div>
         <% end %>
+
         <% if @order.total  %>
           <div class="card-footer">
             <%= link_to 'Pagar', pay_with_paypal_cart_path, method: :post, class: 'btn btn-primary pull-rigth' %>
