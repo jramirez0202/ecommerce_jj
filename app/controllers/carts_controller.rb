@@ -79,7 +79,8 @@ class CartsController < ApplicationController
           order.save!
           payment.save!
         end
-        redirect_to root_path, notice: 'Compra exitosa'
+        
+        #sendgrid 
         
         from = Email.new(email: 'johkcolom@gmail.com')
         subject = 'Hello World from the Twilio SendGrid Ruby Library'
@@ -90,9 +91,12 @@ class CartsController < ApplicationController
         puts mail.to_json
       
         
-        sg = SendGrid::API.new(api_key: ENV['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'])
+        sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
         response = sg.client.mail._('send').post(request_body: mail.to_json)
-        
+
+        redirect_to root_path, notice: 'Compra exitosa'
+
+
       else
         redirect_to root_path, alert: 'Problemas con tu compra'
       end
