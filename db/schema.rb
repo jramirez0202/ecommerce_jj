@@ -78,15 +78,6 @@ ActiveRecord::Schema.define(version: 2021_05_20_051205) do
     t.index ["product_id", "category_id"], name: "index_categories_products_on_product_id_and_category_id"
   end
 
-  create_table "identities", force: :cascade do |t|
-    t.bigint "user_id"
-    t.string "provider"
-    t.string "uid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_identities_on_user_id"
-  end
-
   create_table "order_items", force: :cascade do |t|
     t.bigint "order_id"
     t.bigint "product_id"
@@ -163,13 +154,10 @@ ActiveRecord::Schema.define(version: 2021_05_20_051205) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "role", default: "buyer"
-    t.string "uid"
-    t.string "provider"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "identities", "users"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
   add_foreign_key "orders", "users"

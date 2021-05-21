@@ -31,8 +31,8 @@
               <%= score.rating %>
             <% end %>
           </td>
-          <td></td>
           <td><%= link_to 'Ver producto', product %></td>
+          <td></td>
             <% @users.each do |user| %>
               <% if user.role == "moderador"%>
                 <td><%= link_to 'Destroy', product, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %></td>
