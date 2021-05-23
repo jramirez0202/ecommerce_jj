@@ -1,5 +1,3 @@
 class Address < ApplicationRecord
-    belongs_to :user
-
-    validates :FullName, :phone, :email, :street, :build, :place, :city, :comuna, presence: true
+  belongs_to :user, optional: true
 end

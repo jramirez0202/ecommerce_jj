@@ -1,21 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  FullName: MyString
-  phone: MyString
-  email: MyString
-  street: MyString
-  build: MyString
-  place: MyString
+  fullname: MyString
   city: MyString
   comuna: MyString
+  street: MyString
+  number: 1
+  phone: 1
+  user: one
 
 two:
-  FullName: MyString
-  phone: MyString
-  email: MyString
-  street: MyString
-  build: MyString
-  place: MyString
+  fullname: MyString
   city: MyString
   comuna: MyString
+  street: MyString
+  number: 1
+  phone: 1
+  user: two

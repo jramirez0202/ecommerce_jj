@@ -1,0 +1,12 @@
+<tr>
+        <td><%= address.fullname %></td>
+        <td><%= address.city %></td>
+        <td><%= address.comuna %></td>
+        <td><%= address.street %></td>
+        <td><%= address.number %></td>
+        <td><%= address.phone %></td>
+        <td><%= address.email %></td>
+        <td><%= link_to 'Edit', edit_address_path(address) %></td>
+        <td><%= link_to 'Destroy', address, method: :delete, data: { confirm: 'Are you sure?', remote: true }, class:"delete" %></td>
+        
+</tr>

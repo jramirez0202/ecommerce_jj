@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :addresses
+  
   get 'order_items/create'
   get 'order_items/update'
   get 'order_items/destroy'
@@ -9,8 +9,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :categories
-  resources :order_items
-  resources :order
+
 
   # delete 'orders/destroy/:id', to: 'orders#destroy', as: 'destroy_order'
   resources :products do
@@ -25,13 +24,16 @@ Rails.application.routes.draw do
   end
 
   # post 'home/search' , as: 'home_search'
-  # devise_for :admins 
+
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
-  # resources :carts
+
 
   # delete 'admin/categories/:id', to: 'admin/categories#destroy', as: 'destroy_categorty'
   authenticate :user do
-  end
+    resources :addresses
+    resources :order_items
+    resources :order
+    end
 
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], as: :finish_signup
 

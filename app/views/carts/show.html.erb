@@ -41,6 +41,15 @@
             <p>Tu carrito esta vacio</p>
             <% end %>
           </div>
-    
+
+          <div id="new-address">
+            <%= link_to 'Agregar direccion de envio', new_address_path, remote: true %>
+          </div>
+
+
+          <div id="show-address">
+            <%= link_to 'Ver direcciones', addresses_path %>
+          </div>
+            
         </div>
 

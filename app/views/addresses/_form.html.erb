@@ -12,33 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :FullName %>
-    <%= form.text_field :FullName %>
-  </div>
-
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :calle %>
-    <%= form.text_field :street %>
-  </div>
-
-  <div class="field">
-    <%= form.label :numero %>
-    <%= form.text_field :place %>
-  </div>
-
-  <div class="field">
-    <%= form.label :apto %>
-    <%= form.text_field :build %>
+    <%= form.label :fullname %>
+    <%= form.text_field :fullname %>
   </div>
 
   <div class="field">
@@ -50,6 +25,27 @@
     <%= form.label :comuna %>
     <%= form.text_field :comuna %>
   </div>
+
+  <div class="field">
+    <%= form.label :street %>
+    <%= form.text_field :street %>
+  </div>
+
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.number_field :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.number_field :phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
 
   <div class="actions">
     <%= form.submit %>

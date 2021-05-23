@@ -15,6 +15,7 @@ class CartsController < ApplicationController
   
     def show
       @products = Product.all
+      @address = Address.all
       @order = current_order
       @order_items = @order.order_items
     end
@@ -85,7 +86,7 @@ class CartsController < ApplicationController
         from = Email.new(email: 'johkcolom@gmail.com')
         subject = 'Hello World from the Twilio SendGrid Ruby Library'
         to = Email.new(email: 'johkcolom@gmail.com')
-        content = Content.new(type: 'text/plain', value: 'some text here')
+        content = Content.new(type: 'text/plain', value: 'Has comprado un producto electronico')
         mail = SendGrid::Mail.new(from, subject, to, content)
         # puts JSON.pretty_generate(mail.to_json)
         puts mail.to_json
@@ -111,6 +112,6 @@ class CartsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cart_params
-      params.require(:cart).permit(:name, :photo, users_attributes: [:id,:user_id, :role])
+      params.require(:cart).permit(:name, :photo, users_attributes: [:id,:user_id, :role, :address])
     end
 end
