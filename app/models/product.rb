@@ -11,7 +11,7 @@ class Product < ApplicationRecord
 	# Tiene un archivo adjunto llamado cover con dos versiones de tamaño
 has_attached_file :image, 
 styles: { medium: "300x300>", thumb: "100x100>" },
-:default_url => "/image/:style/missing.png"
+:default_url => "/image/:thumb/missing.png"
 
 # Validación para evitar ataques y solo se suban los archivos de unas extensiones predefinidas
 validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/ 

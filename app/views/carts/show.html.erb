@@ -2,6 +2,10 @@
     <div class="card-header bg-dark text-light">
         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
         <a href="<%= root_url%>" class="btn btn-outline-info btn-sm pull-right">Continue Shopping</a>
+        <a  href="<%=addresses_path%>" class="btn btn-outline-info btn-sm pull-right" > Agregar direccion</a>
+
+
+        
         <div class="clearfix"></div>
     </div>
     <div class="card-body">
@@ -31,7 +35,7 @@
         </div>
         <% end %>
 
-        <% if @order.total  %>
+        <% if @order.order_items.present?  %>
           <div class="card-footer">
             <%= link_to 'Pagar', pay_with_paypal_cart_path, method: :post, class: 'btn btn-primary pull-rigth' %>
             <div class= 'pull-rigth' style= 'margin: 5px'>
@@ -40,15 +44,6 @@
             <% else %>
             <p>Tu carrito esta vacio</p>
             <% end %>
-          </div>
-
-          <div id="new-address">
-            <%= link_to 'Agregar direccion de envio', new_address_path, remote: true %>
-          </div>
-
-
-          <div id="show-address">
-            <%= link_to 'Ver direcciones', addresses_path %>
           </div>
             
         </div>

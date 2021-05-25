@@ -5,7 +5,7 @@ class Order < ApplicationRecord
   RANDOM_SIZE = 9
 
   belongs_to :user
-  has_many :order_items, dependent: :destroy
+  has_many :order_items
   has_many :products, through: :order_items
   has_many :payments
   #validamos que el numero de orden no se repita

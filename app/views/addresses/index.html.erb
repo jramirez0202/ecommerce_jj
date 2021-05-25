@@ -17,10 +17,27 @@
   </thead>
 
   <tbody>
+  <%= form_with do |form| %>
+  
+  <div class="field">
+    <ul>
+      <%= form.label :Address %>
+      <%= form.collection_select :address_id, Address.all, :id, :street %>
+    </ul>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+  <% end %>
+  
   <%= render @addresses%>
   </tbody>
 </table>
 
+<div id="new-address">
+  <%= link_to 'Agregar direccion de envio', new_address_path, remote: true %>
+</div>
 <br>
 
 <%= link_to 'Carro de compras', cart_path %>
