@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  
+ 
   get 'order_items/create'
   get 'order_items/update'
   get 'order_items/destroy'
@@ -32,7 +32,8 @@ Rails.application.routes.draw do
   authenticate :user do
     resources :addresses
     resources :order_items
-    resources :order
+    resources :order 
+    resources :records
     end
 
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], as: :finish_signup

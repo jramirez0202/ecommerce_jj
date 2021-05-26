@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_23_185924) do
+ActiveRecord::Schema.define(version: 2021_05_25_050515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,6 +136,16 @@ ActiveRecord::Schema.define(version: 2021_05_23_185924) do
     t.datetime "string_updated_at"
   end
 
+  create_table "records", force: :cascade do |t|
+    t.bigint "order_id"
+    t.bigint "user_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_records_on_order_id"
+    t.index ["user_id"], name: "index_records_on_user_id"
+  end
+
   create_table "scores", force: :cascade do |t|
     t.integer "rating"
     t.text "comment"
@@ -164,4 +174,6 @@ ActiveRecord::Schema.define(version: 2021_05_23_185924) do
   add_foreign_key "orders", "users"
   add_foreign_key "payments", "orders"
   add_foreign_key "payments", "payment_methods"
+  add_foreign_key "records", "orders"
+  add_foreign_key "records", "users"
 end

@@ -2,7 +2,7 @@
 
 <h1>Addresses</h1>
 
-<table id= "addresses">
+<table id='addresses'>
   <thead>
     <tr>
       <th>Fullname</th>
@@ -17,17 +17,15 @@
   </thead>
 
   <tbody>
-  <%= form_with do |form| %>
-  
+  <%= form_with(scope: 'address') do |f| %>
   <div class="field">
     <ul>
-      <%= form.label :Address %>
-      <%= form.collection_select :address_id, Address.all, :id, :street %>
+      <%= f.label :Address %>
+      <%= f.select :id, @addresses.map { |c| [c.street, c.id] }%>
     </ul>
   </div>
-
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
   <% end %>
   
@@ -35,7 +33,7 @@
   </tbody>
 </table>
 
-<div id="new-address">
+<div id='new-address'>
   <%= link_to 'Agregar direccion de envio', new_address_path, remote: true %>
 </div>
 <br>
