@@ -1,94 +1,77 @@
-<p id="notice"><%= notice %></p>
-<div class="panel panel-default">
-  <div class="panel-body">
-    <div class="row">
-      <div class="col-md-4">
-        <%= @product.photo %>
-            <div class="star-rating" data-score= <%= @average_score %> ></div>
-            <em><%= "Promedio en base a #{@scores.length} calificaciones" %></em> 
-          <div class="table-responsive">
-            <table class="table">
-              <tbody>
-                <tr>
-                  <td><strong>Nombre:</strong></td>
-                  <td><%= @product.name %></td>
-                </tr>
-                <tr>
-                  <td><strong>Stock:</strong></td>
-                  <td><%= @product.stock %></td>
-                </tr>
-                <tr>
-                  <td><strong>Descripción:</strong></td>
-                  <td><%= @product.description %></td>
-                </tr>
-                <tr>
-                  <td><strong>Precio:</strong></td>
-                  <td><%= @product.price %></td>
-                </tr>
-                <tr>
-                  <td><strong>Sku:</strong></td>
-                  <td><%= @product.sku %></td>
-                </tr>
-                <tr>
-                  <td><strong>Rating:</strong></td>
-                  <td>
-                    <div class="star-rating" data-score= <%= @average_score %> ></div>
-                    <em><%= "Promedio en base a #{@scores.length} calificaciones" %></em> 
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+<div class="container-father"> 
+  <div class='container-child'>
+    <div class="container-imag-detail">
+      <div> <%= image_tag 'Cerebro.png', class:'img-product' %></div>
+      <div>
+        <div class='title-product-show'>
+            <h1><%= @product.name %> </h1>
+        </div>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td><strong>Stock:</strong></td>
+              <td><%= @product.stock %></td>
+            </tr>
+            <tr>
+              <td><strong>Descripción:</strong></td>
+              <td><%= @product.description %></td>
+            </tr>
+            <tr>
+              <td><strong>Precio:</strong></td>
+              <td><%= @product.price %></td>
+            </tr>
+            <tr>
+              <td><strong>Sku:</strong></td>
+              <td><%= @product.sku %></td>
+            </tr>
+            <tr>
+              <td><strong>Rating:</strong></td>
+              <td>
+                <div class="star-rating" data-score= <%= @average_score %> ></div>
+                <em><%= "Promedio en base a #{@scores.length} calificaciones" %></em> 
+              </td>
+            </tr>
+          </tbody>
+        </table>
+          <div>
+            <%= form_for :cart, url: cart_path, method: :put do |f| %>
+              <%= f.hidden_field :product_id, value: @product.id %>
+              <%= f.hidden_field :quantity, value: 1 %>
+              <%= f.submit "Add to cart", notice: "Agregado al carrito ",  class: 'btn btn-primary pull-rigth btn-search', style:"width:100%"%>
+            <% end %>
         </div>
       </div>
     </div>
-  </div>
-</div>
-  <div>
-    <%= form_for :cart, url: cart_path, method: :put do |f| %>
-      <%= f.hidden_field :product_id, value: @product.id %>
-      <%= f.hidden_field :quantity, value: 1 %>
-      <%= f.submit "Add to cart", notice: "Agregado al carrito "%>
-    <% end %>
-  </div>
-                      
-
-<div class="col-md-7 col-md-offset-1">
-        <h1 class="review_title"><%= @product.name %></h1>
-        <p><%= @product.description %></p>
-
-        <% if @scores.blank? %>
-          <h3>Se el primero en calificar este producto</h3>
-          <%= link_to "Califica", new_product_score_path(@product), class: "btn btn-danger" %>
-        <% else %>
-        <% if current_user %>
-          <%= link_to "Vota por este producto", new_product_score_path(@product) %>
+    <div>
+      <% if @scores.blank? %>
+        <h3>Se el primero en calificar este producto</h3>
+        <%= link_to "Califica", new_product_score_path(@product),  class: 'btn btn-primary pull-rigth btn-search' %>
+      <% else %>
+      <% if current_user %>
+        <%= link_to "Vota por este producto", new_product_score_path(@product) %>
+      <% end %>
+      
+        <% @scores.each do |score| %>
+          <div class="reviews">
+            <p>Usuario: </p>
+            <div class="star-rating" data-score= <%= score.rating %> ></div>
+            <p> Comentario: <%= score.comment %></p>
+          </div>
         <% end %>
-        
-          <% @scores.each do |score| %>
-            <div class="reviews">
-              <p>Usuario: </p>
-              <div class="star-rating" data-score= <%= score.rating %> ></div>
-              <p> Comentario: <%= score.comment %></p>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
 
-<%== pagy_nav(@pagy)%>
-
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
 
 <script>
-    $('.star-rating').raty({
-      path: '/assets/',
-      readOnly: true,
-      score: function() {
-            return $(this).attr('data-score');
-    }
-  });
+      $('.star-rating').raty({
+        path: '/assets/',
+        readOnly: true,
+        score: function() {
+              return $(this).attr('data-score');
+      }
+    });
 </script>
+  <%= link_to 'Edit', edit_product_path(@product) %> |
+  <%= link_to 'Back', products_path %>

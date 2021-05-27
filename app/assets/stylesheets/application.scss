@@ -18,7 +18,7 @@
 
 .navbar{
     background-color:#f7f2f2 !important;
-    height: 71px;
+    height: 95px;
 } 
 .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus{
     color: #464646;
@@ -69,6 +69,7 @@
 }
 body{
     background-color: #fff;
+    height: 100%;
 }
 .tittle-carousel{
     position: absolute;
@@ -174,12 +175,57 @@ body{
 }
 
 .logo {
-    
+    height: 92px;
 }
 .footer {
-    background-image: url("https://i.stack.imgur.com/AZ2Xw.png");
-    background-position: center center;
-    background-repeat: no-repeat;
     width: 100%;
-    min-height: 300px;
-  }
+    position: abslute;
+    bottom: 0;
+    left: 0;
+    background: #474747;
+    display: flex;
+}
+
+.container-product{
+    position: relative;
+    height: 700px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.title-product{
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 45px;
+    font-weight: 600;
+    font-family: initial;
+    color: #36b1da;
+    margin-bottom: 40px;
+}
+.product-container{
+    display: flex;
+    justify-self: center;
+    width: 50%;
+    margin: 0 auto;
+
+}
+.container-imag-detail{
+    display: flex;
+}
+.container-child{
+    width: 58%;
+    margin: 0 auto;
+}
+.container-father{
+    margin-top: 85px;
+}
+
+.title-product-show{
+    margin-bottom: 20px;
+    
+}
+
+.img-product{
+    max-width: 85%;
+}
+
