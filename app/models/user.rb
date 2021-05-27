@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :records
+  has_many :scores
   has_many :orders
   has_many :addresses, dependent: :destroy
 
