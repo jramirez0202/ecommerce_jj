@@ -21,4 +21,12 @@ Things you may want to cover:
 
 * Deployment instructions
 
+Historias de usurarios
+
+https://trello.com/b/6CLDpRz3/proyecto-ecommerce
+
+shipped model
+order model
+order_products model
+
 * ...

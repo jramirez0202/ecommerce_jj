@@ -1,5 +1,7 @@
 {
   "name": "ecommerce_jj",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.6.0"
+  }
 }

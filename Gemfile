@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.3'
+ruby '2.7.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.5'
@@ -26,10 +26,38 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+# Para autenticación de usuarios
 gem 'devise'
+
+# Para roles y restricciones en el aplicacion
+gem 'cancancan'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
+#Integracion de bootstrap
+	gem 'bootstrap', '~> 4.0.0'
+	gem 'jquery-rails'
+
+#Inicio de sesion con facebook
+gem 'omniauth-facebook'
+gem "omniauth", "~> 1.9.1" 
+
+
+#Inicio de sesion con google
+gem 'dotenv-rails'
+
+# gem "omniauth"
+gem 'omniauth-google-oauth2'
+
+#para mejor proteccion google
+gem "omniauth-rails_csrf_protection"
+
+#paginado de comentarios
+gem 'pagy'
+	
+gem "paperclip"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -48,6 +76,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # PDF de los modelos
+  gem 'rails-erd'
 end
 
 group :test do
@@ -60,3 +90,14 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "faker", "~> 2.17"
+
+gem "activeadmin", "~> 2.9"
+
+gem 'active_skin'
+gem "activemerchant", "~> 1.119"
+
+gem "mailgun-ruby", "~> 1.2"
+
+gem "sendgrid-ruby"

@@ -1,0 +1,42 @@
+
+
+<h1 class="title-category">Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <div class="container-category">
+          <div class="circle-category">
+            <div>
+              <%= image_tag category.photo%>
+            </div>
+      
+        </div>
+            <div class="name-category"><%= link_to "#{category.name}", products_path %></div>
+        <!--<div class="card" style="width: 18rem;">
+          <img src="https://oscarsistemas.milaulas.com/pluginfile.php/2112/course/summary/ele.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h2 class="card-title"><%= category.name %></h2>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>-->
+        <% end %>
+            <td><%= link_to 'Show', category %></td>
+            <td><%= link_to 'Edit', edit_category_path(category) %></td>
+            <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <%= link_to 'New Category', new_category_path %>
+      </tr>
+    
+  </tbody>
+</table>
+
+
+

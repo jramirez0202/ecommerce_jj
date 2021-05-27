@@ -1,0 +1,67 @@
+
+
+<!--<% if user_signed_in? %>
+<h1> <p>Usuario actual</p> <%=current_user.email%> </h1>
+<% else %>
+    <h2>Usuario actual es una visita </h2>
+    <p>Hola bienvenido a nuestra tienda virtual donde podras conseguir productos electronicos,
+     <br> si quieres acceder a todos las funcionesde la página puedes registrarte aqui <%= link_to 'Registrase', new_user_registration_path%> y realizar tus compras de manera online</p>
+<% end %> -->
+
+  <div>
+    <%= render "shared/carrusel" %>
+  </div>
+
+
+<div class="row container-row">
+  <div class="col-md-8 offset-2">
+    <div class="container">
+    <div class="sale">Ofertas</div>
+      <div class="row">
+        <% @products.each do |product| %>
+            <% product.categories.sort.each do |categories| %>
+              <div class="col-md-3 cards">
+                <div class="card">
+                  <img class="card-img-top" src="<%=product.photo %>" alt="imagen"/>
+                  <div class="card-block">
+                    <h4 class="card-title"> <%= product.name %></h4>
+                    <div class="card-text">
+                      <div class="badge badge-primary"><%= categories.name if product.category_ids %></div>
+                      <!--El stock no deberia de verlo el comprador-->
+                      <div class="sku">Sku:<%= product.sku %></div>
+                      <div class="total-price">$<%= product.price %></div>
+                      <% product.scores.sort.each do |score| %>
+                      <div class="star-rating" data-score= <%= @average_score %> ></div>
+                      <% end %>
+                    </div>
+                  <div class="row float-right">
+                    <div class="col-md-12">
+                    <a  href="<%=product_path(product.id)%>" class="btn btn-outline-info btn-sm pull-right see-more" > Ver prodcuto </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <div class="category-index">
+    <%= render "shared/categoryShow" %>
+  </div>
+
+
+
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>

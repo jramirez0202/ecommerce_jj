@@ -1,0 +1,231 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *
+ *= require_self
+ */
+
+@import "bootstrap";
+
+.navbar{
+    background-color:#f7f2f2 !important;
+    height: 95px;
+} 
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus{
+    color: #464646;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: #36b1da;
+}
+.navbar-expand-lg .navbar-collapse {
+    margin-left: 50%;
+}
+
+.form1 > form{
+    display: flex;
+}
+.form-control{
+    border-radius: 14px;
+}
+.form-group {
+    margin-bottom: 0rem;
+}
+.btn-search{
+    margin-left: 10px;
+    background-color: #36b1da;
+    color: #f7f2f2;
+    border-radius: 7px;
+}
+.btn-primary {
+    border-color:#36b1da !important;
+}
+.btn-search:hover{
+    background-color: #36b1da;
+}
+.cards{
+    margin-bottom: 13px;
+}
+.container-row{
+    background-color: #f7f2f2;
+    padding: 67px;
+    margin: 2%;
+}
+.sale, .title-category{
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 45px;
+    font-weight: 600;
+    font-family: initial;
+    color: #36b1da;
+}
+body{
+    background-color: #fff;
+    height: 100%;
+}
+.tittle-carousel{
+    position: absolute;
+    z-index: 10;
+    left: 70px;
+    width: 33%;
+    top: 36%;
+}
+.tittle-carousel > h1{
+    font-size: 60px;
+    font-weight: 600;
+}
+.container-category{
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    width: 20%;
+    margin-top: 34px;
+
+}
+.circle-category{
+    display: inline-block;
+    background-color: #f7f2f2;
+    padding: 45px 40px;
+    border-radius: 100px;
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,.1),0 2px 12px 0 rgba(0,0,0,.2);
+    margin-bottom: 10px;
+    max-width: 80%;
+}
+
+.circle-category > div > img{
+    max-height: 58px;
+    max-width: 50px;
+}
+.img-category{
+    font-size: 25px;
+    height: 114px;
+    width: 127px;
+    display: inline-block;
+}
+.category-index{
+    background-color: #fff;
+    padding: 67px;
+    margin: 2%;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 1.0rem;
+    padding: 15px;
+    width: 100%;
+    margin: 0px;
+}
+
+.card-title {
+    margin-bottom: 0.75rem;
+    margin-top: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #666;
+    font-size: 15px;
+    
+}
+
+.badge-primary {
+    color:#36b1da;
+    background-color:#f7f2f2;
+    padding: 10px;
+}
+
+.total-price{
+    font-size: 18px;
+    color:#36b1da;
+    font-weight: 600;
+}
+
+.sku{
+    font-size: 12px;
+    margin-top: 10px;
+    color: #666;
+    font-weight: 500;
+    margin-bottom: 3px;
+    
+}
+
+.star-rating{
+    margin-top: 4px;
+}
+
+.see-more{
+    color: #36b1da;
+    background-color: #f7f2f2;
+    border: none;
+    margin-top: 11px;
+    height: 29px;
+}
+
+.logo {
+    height: 92px;
+}
+.footer {
+    width: 100%;
+    position: abslute;
+    bottom: 0;
+    left: 0;
+    background: #474747;
+    display: flex;
+}
+
+.container-product{
+    position: relative;
+    height: 700px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.title-product{
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 45px;
+    font-weight: 600;
+    font-family: initial;
+    color: #36b1da;
+    margin-bottom: 40px;
+}
+.product-container{
+    display: flex;
+    justify-self: center;
+    width: 50%;
+    margin: 0 auto;
+
+}
+.container-imag-detail{
+    display: flex;
+}
+.container-child{
+    width: 58%;
+    margin: 0 auto;
+}
+.container-father{
+    margin-top: 85px;
+}
+
+.title-product-show{
+    margin-bottom: 20px;
+    
+}
+
+.img-product{
+    max-width: 85%;
+}
+
