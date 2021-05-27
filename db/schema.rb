@@ -57,17 +57,10 @@ ActiveRecord::Schema.define(version: 2021_05_25_050515) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
+    t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "category_id"
-    t.string "photo_file_name"
-    t.string "photo_content_type"
-    t.bigint "photo_file_size"
-    t.datetime "photo_updated_at"
-    t.string "string_file_name"
-    t.string "string_content_type"
-    t.bigint "string_file_size"
-    t.datetime "string_updated_at"
     t.index ["category_id"], name: "index_categories_on_category_id"
   end
 
@@ -124,16 +117,9 @@ ActiveRecord::Schema.define(version: 2021_05_25_050515) do
     t.text "description"
     t.integer "price"
     t.string "sku"
+    t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.bigint "image_file_size"
-    t.datetime "image_updated_at"
-    t.string "string_file_name"
-    t.string "string_content_type"
-    t.bigint "string_file_size"
-    t.datetime "string_updated_at"
   end
 
   create_table "records", force: :cascade do |t|
@@ -149,13 +135,16 @@ ActiveRecord::Schema.define(version: 2021_05_25_050515) do
   create_table "scores", force: :cascade do |t|
     t.integer "rating"
     t.text "comment"
-    t.integer "user_id"
+    t.bigint "user_id"
+    t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "product_id"
+    t.index ["product_id"], name: "index_scores_on_product_id"
+    t.index ["user_id"], name: "index_scores_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -176,4 +165,6 @@ ActiveRecord::Schema.define(version: 2021_05_25_050515) do
   add_foreign_key "payments", "payment_methods"
   add_foreign_key "records", "orders"
   add_foreign_key "records", "users"
+  add_foreign_key "scores", "products"
+  add_foreign_key "scores", "users"
 end

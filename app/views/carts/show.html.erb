@@ -11,7 +11,8 @@
       <% @order.order_items.includes(:product).each do |order_item| %>
         <div class="row">
             <div class="col-xs-2 col-md-2">
-                <%= image_tag order_item.product.image.url(:thumb)%>
+                <%# <%= image_tag order_item.product.image.url(:thumb)%>
+                <%= order_item.product.photo %>
             </div>
             <div class="col-xs-4 col-md-6">
               <h4 class="product-name"><strong><%= order_item.product.name %></strong></h4>

@@ -7,7 +7,7 @@
 
 <p>
   <strong>Photo:</strong>
-  <%= image_tag @category.photo.url(:thumb)%>
+  <%= @category.photo%>
 </p>
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
