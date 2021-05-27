@@ -17,17 +17,17 @@
 @import "bootstrap";
 
 .navbar{
-    background-color:#3e3d3d !important;
+    background-color:#f7f2f2 !important;
     height: 71px;
 } 
 .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus{
-    color: #22eab2;
+    color: #464646;
 }
 .navbar-light .navbar-nav .nav-link {
-    color: #fff;
+    color: #36b1da;
 }
 .navbar-expand-lg .navbar-collapse {
-    margin-left: 54%;
+    margin-left: 50%;
 }
 
 .form1 > form{
@@ -41,21 +41,21 @@
 }
 .btn-search{
     margin-left: 10px;
-    background-color: #22eab2;
-    color: black;
+    background-color: #36b1da;
+    color: #f7f2f2;
     border-radius: 7px;
 }
 .btn-primary {
-    border-color: #22eab2 !important;
+    border-color:#36b1da !important;
 }
 .btn-search:hover{
-    background-color: #22eab2;
+    background-color: #36b1da;
 }
 .cards{
     margin-bottom: 13px;
 }
 .container-row{
-    background-color: #fff;
+    background-color: #f7f2f2;
     padding: 67px;
     margin: 2%;
 }
@@ -65,9 +65,10 @@
     margin-bottom: 45px;
     font-weight: 600;
     font-family: initial;
+    color: #36b1da;
 }
 body{
-    background-color: #a7b094;
+    background-color: #fff;
 }
 .tittle-carousel{
     position: absolute;
@@ -113,3 +114,72 @@ body{
     padding: 67px;
     margin: 2%;
 }
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 1.0rem;
+    padding: 15px;
+    width: 100%;
+    margin: 0px;
+}
+
+.card-title {
+    margin-bottom: 0.75rem;
+    margin-top: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #666;
+    font-size: 15px;
+    
+}
+
+.badge-primary {
+    color:#36b1da;
+    background-color:#f7f2f2;
+    padding: 10px;
+}
+
+.total-price{
+    font-size: 18px;
+    color:#36b1da;
+    font-weight: 600;
+}
+
+.sku{
+    font-size: 12px;
+    margin-top: 10px;
+    color: #666;
+    font-weight: 500;
+    margin-bottom: 3px;
+    
+}
+
+.star-rating{
+    margin-top: 4px;
+}
+
+.see-more{
+    color: #36b1da;
+    background-color: #f7f2f2;
+    border: none;
+    margin-top: 11px;
+    height: 29px;
+}
+
+.logo {
+    
+}
+.footer {
+    background-image: url("https://i.stack.imgur.com/AZ2Xw.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 300px;
+  }
