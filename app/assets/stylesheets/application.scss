@@ -211,6 +211,9 @@ body{
 }
 .container-imag-detail{
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
 }
 .container-child{
     width: 58%;
