@@ -34,7 +34,7 @@
     </tbody>
   </table>
                 <% if user_signed_in? && current_user.role =="moderador"%>
-                  <td><%= link_to 'New Product', new_product_path, class: 'btn btn-primary pull-rigth btn-search' %> </td>
+                  <td><%= link_to 'New Product', new_product_path, remote: true, class: 'btn btn-primary pull-rigth btn-search' %> </td>
                 <% end %>
 
   <br>

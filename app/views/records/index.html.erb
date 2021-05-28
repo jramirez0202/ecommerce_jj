@@ -14,7 +14,7 @@
   <tbody>
     <% @orders.each do |order| %>
       <% order.records.each do |record| %>
-          <td><%= record %></td>
+          <td><%= best_in_place record, :name, as: :input %></td>
       <% end %>
     <% end %>
 

@@ -1,6 +1,40 @@
-<h1>Editing Product</h1>
-
-<%= render 'form', product: @product %>
+<h1 class= text-center>Editing Product</h1>
+<div class="container">
+<%= form_for @product, remote: true do |f| %>
+			<div class="modal-body">
+				<div class="form-group">
+					<%= f.text_field :name, class: "form-control input-lg", placeholder: "Nombre del producto" %>
+				</div>
+				<div class="form-group">
+					<%= f.file_field :photo, class: "form-control input-lg" %>
+				</div>
+				<div class="form-group">
+					<%= f.number_field :stock, class: "form-control input-lg", placeholder: "Cantidad de stock" %>
+				</div>
+				<div class="form-group">
+					<%= f.text_area :description, class: "form-control input-lg", placeholder: "Cararcteristicas" %>
+				</div>
+				<div class="form-group">
+					<%= f.number_field :price, class: "form-control input-lg", placeholder: "Precio" %>
+				</div>
+				<div class="form-group">
+					<%= f.text_field :sku, class: "form-control input-lg", placeholder: "Codigo" %>
+				</div>
+				<div class="field">
+					<%= f.collection_check_boxes(:category_ids,
+																			Category.all,
+																			:id,
+																			:name) do |b| %>
+						<%= b.label class:"label-checkbox" do%>
+						<%=b.check_box + b.text%>
+						<%end%>
+					<% end %>
+				</div>
+			<div class="modal-footer">
+				<%= f.submit class: "btn btn-primary btn-lg btn-block" %>
+			</div>
+		<% end %>
+	</div>
 
 <%= link_to 'Show', @product %> |
 <%= link_to 'Back', products_path %>

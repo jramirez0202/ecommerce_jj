@@ -58,10 +58,15 @@ gem 'omniauth-google-oauth2'
 #para mejor proteccion google
 gem "omniauth-rails_csrf_protection"
 
+#font-awesome
+gem "font-awesome-rails"
+
 #paginado de comentarios
 gem 'pagy'
 	
-gem "paperclip"
+#para editar el Jquery
+gem 'best_in_place', '~> 3.0.1'
+# gem "paperclip"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

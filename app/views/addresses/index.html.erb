@@ -19,7 +19,7 @@
     <%= form_with(scope: 'address') do |f| %>
     <div class="field">
       <ul>
-        <%= f.label :Direccion_Select_ %>
+        <%= f.label :Direccion_Street %>
         <%= f.select :id, @addresses.map { |c| [c.street, c.id] }%>
       </ul>
     </div>
