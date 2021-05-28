@@ -5,10 +5,11 @@
   <%= @category.name %>
 </p>
 
-<p>
-  <strong>Photo:</strong>
-  <%= @category.photo%>
-</p>
+<figure class= "img-circle">
+<% if @category.photo.attached? %>
+  <%= image_tag(url_for(@category.photo))%>
+  <% end %>
+</figure>
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', category_path(@category) %>

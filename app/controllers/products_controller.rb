@@ -7,9 +7,6 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @users = User.all
-    
-
-
     if params[:sku].present?
       @products = @products.where("sku ILIKE ?", "%#{params[:sku]}%")
     end
@@ -20,7 +17,8 @@ class ProductsController < ApplicationController
 
   # GET /products/1 or /products/1.json
   def show
-    @pagy, @scores = pagy(Score.all)
+    
+    # @pagy, @scores = pagy(Score.all)
     @scores = Score.where(product_id: @product.id).order("created_at DESC")
 
     if @scores.blank?
@@ -80,6 +78,7 @@ class ProductsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
+      @users = User.all
     end
 
     def set_category

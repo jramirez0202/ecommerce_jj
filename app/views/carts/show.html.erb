@@ -1,4 +1,4 @@
-<div class="card">
+<!--<div class="card">
     <div class="card-header bg-dark text-light">
         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
         <a href="<%= root_url%>" class="btn btn-outline-info btn-sm pull-right">Continue Shopping</a>
@@ -9,7 +9,7 @@
     </div>
     <div class="card-body">
       <% @order.order_items.includes(:product).each do |order_item| %>
-        <div class="row">
+        <div class="row row-card">
             <div class="col-xs-2 col-md-2">
                 <%# <%= image_tag order_item.product.image.url(:thumb)%>
                 <%= order_item.product.photo %>
@@ -19,7 +19,7 @@
               <h4><small> <%= order_item.product.description %></small></h4>
             </div>
             <div class="col-xs-6 col-md-4 row">
-                <div class="col-xs-6 col-md-6 text-right" style="padding-top: 5px">
+                <div class="col-xs-6 col-md-6t" style="padding-top: 5px">
                   <h6><strong><%= order_item.price%> <span class="text-muted">x</span></strong></h6>
                 </div>
                 <div class="col-xs-4 col-md-4">
@@ -46,5 +46,44 @@
             <% end %>
           </div>
             
-        </div>
+        </div> -->
 
+<div class="card">
+  <div class="card-header bg-dark text-light">
+      <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+      <a href="<%= root_url%>" class="btn btn-outline-info btn-sm pull-right">Continue Shopping</a>
+      <a  href="<%=addresses_path%>" class="btn btn-outline-info btn-sm pull-right" > Agregar direccion</a>
+      <a  href="<%=records_path%>" class="btn btn-outline-info btn-sm pull-right" > Ver historial </a>
+  </div>
+   <% @order.order_items.includes(:product).each do |order_item| %>
+  <div class="container-card">
+      <div>
+          <div class="header-cart"><strong><%= order_item.product.name %></div>
+          <div class="container-info">
+            <div class="quantity"><%= order_item.quantity %></div>
+            <div class="info-car">
+              <div class="description"><%= order_item.product.description %></div>
+              <div class="create"><%= @order.created_at%></div>
+              <div><%= order_item.price%> x <%= order_item.quantity %></div>
+            </div>
+            <div class="btn-destroy">
+              <%= link_to 'Destroy', order_item_path(order_item.id), remote: true, method: :delete, class: "btn btn-primary  btn-search", data: { confirm: 'Are you sure?' } %>
+            </div>
+          </div>
+      </div>
+    </div>
+    <% end %>
+    <div>
+       <% if @order.order_items.present?  %>
+       <div>
+        <div class= 'pull-rigth total' >
+            Total: $<b><%= @order.total %></b>
+          </div>
+          <%= link_to 'Pagar', pay_with_paypal_cart_path, method: :post, class: 'btn btn-primary pull-rigth  btn-pay' %>
+            <% else %>
+            <p>Tu carrito esta vacio</p>
+            <% end %>
+       </div>
+    </div>
+  </div>
+</div>

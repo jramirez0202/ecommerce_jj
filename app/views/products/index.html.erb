@@ -29,19 +29,19 @@
                 <%= score.rating %>
               <% end %>
             </td>
-            <td><%= link_to 'Ver producto', product,  class: 'btn btn-primary pull-rigth btn-search'  %></td>
-            <td></td>
-              <% @users.each do |user| %>
-                <% if user.role == "moderador"%>
-                  <td><%= link_to 'Destroy', product, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                <% end %>
-              <% end %>
+            <td><%= link_to 'Ver Producto', product,  class: 'btn btn-primary pull-rigth btn-search'  %></td>
+
+          <% if user_signed_in? && current_user.role =="moderador" %>
+            <td><%= link_to 'Destroy', product, remote: true, method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-primary pull-rigth btn-search' %></td>
+          <% end %>
         </tr>
         <% end %>
       <% end %>
     </tbody>
   </table>
+                <% if user_signed_in? && current_user.role =="moderador"%>
+                  <td><%= link_to 'New Product', new_product_path, class: 'btn btn-primary pull-rigth btn-search' %> </td>
+                <% end %>
 
   <br>
-   <%= link_to 'New Product', new_product_path, class: 'btn btn-primary pull-rigth btn-search' %>
 </div>

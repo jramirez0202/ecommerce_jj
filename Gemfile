@@ -44,6 +44,10 @@ gem 'cancancan'
 gem 'omniauth-facebook'
 gem "omniauth", "~> 1.9.1" 
 
+#gema para graficos
+
+gem 'chartkick'
+gem 'groupdate'
 
 #Inicio de sesion con google
 gem 'dotenv-rails'

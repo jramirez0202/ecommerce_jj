@@ -1,6 +1,10 @@
 class Product < ApplicationRecord
 
-    validates :name, :sku, :stock, :description, :price, presence: true
+    has_one_attached :photo do |attachable|
+		attachable.variant :thumb, resize: "100x100"
+	end
+
+    validates :name, :sku, :stock, :description, :price, :photo, presence: true
 
     has_and_belongs_to_many :categories
     belongs_to :user, optional: true

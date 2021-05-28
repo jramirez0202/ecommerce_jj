@@ -2,6 +2,7 @@
   "name": "ecommerce_jj",
   "private": true,
   "dependencies": {
+    "highcharts": "^9.1.0",
     "jquery": "^3.6.0"
   }
 }

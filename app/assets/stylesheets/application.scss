@@ -29,7 +29,6 @@
 .navbar-expand-lg .navbar-collapse {
     margin-left: 50%;
 }
-
 .form1 > form{
     display: flex;
 }
@@ -88,7 +87,6 @@ body{
     vertical-align: top;
     width: 20%;
     margin-top: 34px;
-
 }
 .circle-category{
     display: inline-block;
@@ -99,7 +97,6 @@ body{
     margin-bottom: 10px;
     max-width: 80%;
 }
-
 .circle-category > div > img{
     max-height: 58px;
     max-width: 50px;
@@ -115,7 +112,6 @@ body{
     padding: 67px;
     margin: 2%;
 }
-
 .card {
     position: relative;
     display: flex;
@@ -130,7 +126,6 @@ body{
     width: 100%;
     margin: 0px;
 }
-
 .card-title {
     margin-bottom: 0.75rem;
     margin-top: 18px;
@@ -140,32 +135,26 @@ body{
     font-size: 15px;
     
 }
-
 .badge-primary {
     color:#36b1da;
     background-color:#f7f2f2;
     padding: 10px;
 }
-
 .total-price{
     font-size: 18px;
     color:#36b1da;
     font-weight: 600;
 }
-
 .sku{
     font-size: 12px;
     margin-top: 10px;
     color: #666;
     font-weight: 500;
-    margin-bottom: 3px;
-    
+    margin-bottom: 3px;   
 }
-
 .star-rating{
     margin-top: 4px;
 }
-
 .see-more{
     color: #36b1da;
     background-color: #f7f2f2;
@@ -173,7 +162,6 @@ body{
     margin-top: 11px;
     height: 29px;
 }
-
 .logo {
     height: 92px;
 }
@@ -185,14 +173,12 @@ body{
     background: #474747;
     display: flex;
 }
-
 .container-product{
     position: relative;
     height: 700px;
     text-align: center;
     margin-top: 20px;
 }
-
 .title-product{
     text-align: center;
     font-size: 50px;
@@ -207,7 +193,6 @@ body{
     justify-self: center;
     width: 50%;
     margin: 0 auto;
-
 }
 .container-imag-detail{
     display: flex;
@@ -221,14 +206,92 @@ body{
 }
 .container-father{
     margin-top: 85px;
+    height: 800px;
 }
-
 .title-product-show{
     margin-bottom: 20px;
-    
 }
-
 .img-product{
     max-width: 85%;
 }
+.reviews{
+    background-color:#f7f2f2;
+    box-shadow: 3px 2px 8px 2px #ddd;
+    padding: 13px;
+    margin-bottom: 23px;
+}
+.comentary{
+    max-width: 40%;
+}
+.h3-title{
+    font-size: 18px;
+    margin-left: 10px;
+    color: #666;
+    font-weight: 600;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.row-card{
+    background: #36b1da;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 51pxx;
+}
+.card{
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-bottom: 273px;
+  
+}
+.container-card{
+    margin-top: 1rem;
+    background: #fff;
+    border-radius: 2%;
+    border: 0.5px solid #cccc;
+}
+.header-cart{
+    background-color:#f7f2f2; 
+    padding: 10px;
+    color:#36b1da;
+    font-size: 22px;
+    font-weight: 600;
 
+}
+.container-info{
+    display: flex;
+    padding: 17px;
+}
+.quantity{
+    margin: 16px 20px 20px;
+    font-size: 22px;
+    font-weight: 600;
+    color:#333
+}
+.description, .create{
+    font-size: 14px;
+    font-weight: 400;
+    color:#666
+}
+.btn-destroy{
+    margin-left: 15px;
+}
+.badge-primary:focus{
+    background-color: none;
+}
+.info-car{
+    width: 80%;
+}
+.btn-pay{
+    background-color: #36b1da;
+    color: #f7f2f2;
+    border-radius: 7px;
+    width: 100%;
+    margin-top: 20px;
+}
+.total{
+    text-align: center;
+    margin-top: 25px;   
+}
+.btn-pay:hover{
+    background-color: #36b1da;
+}

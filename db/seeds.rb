@@ -9,8 +9,9 @@
 AdminUser.destroy_all
 Dir[File.join(Rails.root, 'db', 'seeds', '*.rb')].sort.each {|seed| load seed }
 
-
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: '123456') if Rails.env.development?
+User.create!(name:"Bucky",email: 'moderador@example.com', password: '123456', password_confirmation: '123456', role:"moderador")
+User.create!(name:"Bucky",email: 'test@example.com', password: '123456', password_confirmation: '123456', role:"buyer")
+AdminUser.create!(email: 'admin@example.com', password: '123456', password_confirmation: '123456') if Rails.env.development?
 
 PaymentMethod.create(name: "Paypal Express Checkout", code: "PEC")
 

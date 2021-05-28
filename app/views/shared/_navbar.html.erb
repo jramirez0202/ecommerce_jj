@@ -3,10 +3,12 @@
     <div>
       <%= image_tag("logo.png", :alt => "logo", class:"logo")%>
     </div>
+
+ 
       
     <div class= "nav-link">
       <% if user_signed_in? %>
-      <%= current_user.email %>
+      <p>Welcome: <%= current_user.name %> </p>
     <% end %>
     </div>
   

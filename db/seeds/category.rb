@@ -10,6 +10,6 @@ Category.destroy_all
 #     Category.create(name: category)
 # end
 
-Category.create(name: "Smartphones")
+Category.create(name: "Componentes")
 Category.create(name: "Computacion")
-Category.create(name: "Accesories")
+Category.create(name: "Accesorios")

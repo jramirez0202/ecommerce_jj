@@ -4,17 +4,17 @@ class HomeController < ApplicationController
     @categories = Category.all
     @users = User.all
     @scores = Score.all
-
+    
     if @scores.blank?
       @average_score = 0
     else
       @average_score = @scores.average(:rating).round(2)
     end
 
+    @scores_grouped_by_month = Score.group(:rating).count
     # def search
     #   @products = Product.search(params[:search]).order('name ASC').page(params[:page]).per(10)
     # end
-
   end
 
   def name

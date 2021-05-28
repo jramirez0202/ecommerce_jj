@@ -22,7 +22,11 @@
             <% product.categories.sort.each do |categories| %>
               <div class="col-md-3 cards">
                 <div class="card">
-                  <img class="card-img-top" src="<%=product.photo %>" alt="imagen"/>
+                  <div class="card-img-top">
+                  <% if product.photo.attached? %>
+                    <%= image_tag product.photo, class:"imagen-home"%>
+                  <% end %>
+                  </div>
                   <div class="card-block">
                     <h4 class="card-title"> <%= product.name %></h4>
                     <div class="card-text">
@@ -53,6 +57,8 @@
   <div class="category-index">
     <%= render "shared/categoryShow" %>
   </div>
+
+  <%= column_chart @scores_grouped_by_month %>
 
 
 

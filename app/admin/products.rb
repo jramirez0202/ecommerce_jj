@@ -32,7 +32,7 @@ ActiveAdmin.register Product do
         f.input :description
         f.input :price
         f.input :sku
-        f.input :image
+        f.input :photo
         # f.input :user_id
       end
   

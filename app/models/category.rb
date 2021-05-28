@@ -1,7 +1,9 @@
 class Category < ApplicationRecord
+	has_one_attached :photo do |attachable|
+		attachable.variant :thumb, resize: "100x100"
+	end
 
-
-validates :name, presence: true
+validates :name, :photo, presence: true
 
 # # Tiene un archivo adjunto llamado cover con dos versiones de tamaño
 # has_attached_file :photo, styles: { medium: "300x300>", thumb: "100x100>" },

@@ -1,11 +1,15 @@
 <div class="container-father"> 
   <div class='container-child'>
     <div class="container-imag-detail">
-      <div> <%= image_tag 'Cerebro.png', class:'img-product' %></div>
       <div>
-        <div class='title-product-show'>
-            <h1><%= @product.name %> </h1>
-        </div>
+        <% if @product.photo.attached? %>
+          <%= image_tag @product.photo%>
+        <% end %>
+      </div>
+    <div>
+      <div class='title-product-show'>
+          <h1><%= @product.name %> </h1>
+      </div>
         <table class="table">
           <tbody>
             <tr>
@@ -44,7 +48,7 @@
     </div>
     <div>
       <% if @scores.blank? %>
-        <h3>Se el primero en calificar este producto</h3>
+        <h3 class="h3-title">Se el primero en calificar este producto</h3>
         <%= link_to "Califica", new_product_score_path(@product),  class: 'btn btn-primary pull-rigth btn-search' %>
       <% else %>
       <% if current_user %>
@@ -55,7 +59,9 @@
           <div class="reviews">
             <p>Usuario: </p>
             <div class="star-rating" data-score= <%= score.rating %> ></div>
-            <p> Comentario: <%= score.comment %></p>
+            <div class="comentary">
+            <%= score.comment %>
+            </div>
           </div>
         <% end %>
       <% end %>
@@ -73,5 +79,12 @@
       }
     });
 </script>
-  <%= link_to 'Edit', edit_product_path(@product) %> |
-  <%= link_to 'Back', products_path %>
+
+<td><% @users.each do |user| %>
+  <% if user.role == "moderador"%>
+    <%= link_to 'Edit', edit_product_path(@product) %> |
+    <%= link_to 'Back', products_path %>
+  <% end %>
+<% end %> 
+</td>
+
