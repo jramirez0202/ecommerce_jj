@@ -1,0 +1,7 @@
+<tr id="<%= category.id %>">
+  <td><%= category.name %></td>
+  <td><%= category.photo %></td>
+  <td>
+    <%= link_to "Editar", edit_product_path(category), remote: true %>
+  </td>
+</tr>

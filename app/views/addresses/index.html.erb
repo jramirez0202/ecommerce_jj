@@ -1,41 +1,43 @@
+<div class= container-address>
+  <h1>Addresses</h1>
+  <div>
+    <table id='addresses' class="table table-striped">
+    <thead>
+      <tr>
+        <th>Fullname</th>
+        <th>City</th>
+        <th>Comuna</th>
+        <th>Street</th>
+        <th>Number</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
 
+    <tbody>
+    <%= form_with(scope: 'address') do |f| %>
+    <div class="field">
+      <ul>
+        <%= f.label :Direccion_Select_ %>
+        <%= f.select :id, @addresses.map { |c| [c.street, c.id] }%>
+      </ul>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+    <% end %>
+    
+    <%= render @addresses%>
+    </tbody>
 
-<h1>Addresses</h1>
+    
+  </table>
 
-<table id='addresses' class="table table-striped">
-  <thead>
-    <tr>
-      <th>Fullname</th>
-      <th>City</th>
-      <th>Comuna</th>
-      <th>Street</th>
-      <th>Number</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-  <%= form_with(scope: 'address') do |f| %>
-  <div class="field">
-    <ul>
-      <%= f.label :Address %>
-      <%= f.select :id, @addresses.map { |c| [c.street, c.id] }%>
-    </ul>
+  <div id='new-address'>
+    <%= link_to 'Agregar direccion de envio', new_address_path, remote: true, class: "btn btn-primary  btn-search" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
   </div>
-  <% end %>
   
-  <%= render @addresses%>
-  </tbody>
-</table>
 
-<div id='new-address'>
-  <%= link_to 'Agregar direccion de envio', new_address_path, remote: true %>
 </div>
-<br>
-
-<%= link_to 'Carro de compras', cart_path %>
