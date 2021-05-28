@@ -1,58 +1,99 @@
-<div class="row g-3">
-  <div class="col">
-<%= form_with(model: address, remote: true) do |form| %>
-  <% if address.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(address.errors.count, "error") %> prohibited this address from being saved:</h2>
-
-      <ul>
-      <% address.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :fullname %>
-    <%= form.text_field :fullname %>
-  </div>
-
-  <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city %>
-  </div>
-
-  <div class="field">
-    <%= form.label :comuna %>
-    <%= form.text_field :comuna %>
-  </div>
-
-  <div class="field">
-    <%= form.label :street %>
-    <%= form.text_field :street %>
-  </div>
-
-  <div class="field">
-    <%= form.label :number %>
-    <%= form.number_field :number %>
-  </div>
-
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.number_field :phone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
+<div class="container">
 
 
+	<div class="card mt-5">
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-  </div>
+		<div class= card-header>
+			<h3 class="text text-secondary">Formulario direcciones</h3>
+		</div>
+
+		<div class="card-body">
+		<%= form_with(model: address, remote: true) do |form| %>
+    <% if address.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(address.errors.count, "error") %> prohibited this address from being saved:</h2>
+
+        <ul>
+        <% address.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+	<div class="form-group row">
+		<%= form.label :fullname, 'Nombre:', class:'col-sm-2' %>
+		<div class= "col-sm-4">
+			<%= form.text_field :fullname, class:'form-control' %>
+		</div>
+	</div>
+
+
+	<div class="form-group row">
+			<%= form.label :email, class:'col-sm-2' %>
+		<div class= "col-sm-4">
+			<%= form.email_field :email, class:'form-control' %>
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<%= form.label :city, class:'col-sm-2' %>
+		<div class= "col-sm-4">
+			<%= form.text_field :city, class:'form-control' %>
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<%= form.label :comuna, class:'col-sm-2' %>
+		<div class= "col-sm-4">
+		<%= form.text_field :comuna, class:'form-control' %>
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<%= form.label :street, class:'col-sm-2' %>
+		<div class= "col-sm-4">
+		<%= form.text_field :street, class:'form-control' %>
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<%= form.label :number, class:'col-sm-2'  %>
+		<div class= "col-sm-4">
+		<%= form.text_field :number, class:'form-control' %>
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<%= form.label :phone, class:'col-sm-2' %>
+		<div class= "col-sm-4">
+		<%= form.text_field :phone, class:'form-control' %>
+		</div>
+	</div>
+
+	<div class="actions">
+			<%= form.submit %>
+	</div>
+
+	<% end %>
+			</div>
+
+	</div>
+
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+ 

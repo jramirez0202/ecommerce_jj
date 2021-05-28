@@ -5,6 +5,7 @@ class RecordsController < ApplicationController
   def index
     @records = Record.all
     @users = User.all
+    @orders = User.all
   end
 
   # GET /records/1 or /records/1.json

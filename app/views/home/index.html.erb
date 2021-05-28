@@ -34,9 +34,6 @@
                       <!--El stock no deberia de verlo el comprador-->
                       <div class="sku">Sku:<%= product.sku %></div>
                       <div class="total-price">$<%= product.price %></div>
-                      <% product.scores.sort.each do |score| %>
-                      <div class="star-rating" data-score= <%= @average_score %> ></div>
-                      <% end %>
                     </div>
                   <div class="row float-right">
                     <div class="col-md-12">

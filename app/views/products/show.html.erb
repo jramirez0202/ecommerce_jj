@@ -57,7 +57,7 @@
       
         <% @scores.each do |score| %>
           <div class="reviews">
-            <p>Usuario: </p>
+            <p>Usuario:<%=score.user_id%> </p>
             <div class="star-rating" data-score= <%= score.rating %> ></div>
             <div class="comentary">
             <%= score.comment %>
@@ -82,9 +82,14 @@
 
 <td><% @users.each do |user| %>
   <% if user.role == "moderador"%>
-    <%= link_to 'Edit', edit_product_path(@product) %> |
-    <%= link_to 'Back', products_path %>
+
   <% end %>
 <% end %> 
 </td>
 
+  <% if user_signed_in? && current_user.role =="moderador"%>
+    <td>
+        <%= link_to 'Edit', edit_product_path(@product) %> |
+        <%= link_to 'Back', products_path %> 
+    </td>
+  <% end %>
