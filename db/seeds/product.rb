@@ -28,7 +28,7 @@ p_05.categories << category_2
 p_06 = Product.create(name: "Disco SSD Nvme", description: "1000 gigas", stock: 13, price: 60, sku: "ASS090")
 p_06.categories << category_2
 
-category_3 = Category.find_by(name: "Accesories")
+category_3 = Category.find_by(name: "Accesorios")
 
 p_08 = Product.create(name: "Conectores", description: "Waterproof", stock: 50, price: 20, sku: "MW2323")
 p_08.categories << category_3

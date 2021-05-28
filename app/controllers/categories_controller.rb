@@ -4,6 +4,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories or /categories.json
   def index
+    @category = Category.find(params[:id])
     @categories = Category.all
     # @products = Product.all
     @users = User.all
@@ -11,6 +12,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1 or /categories/1.json
   def show
+    @category = Category.find(params[:id])
   end
 
   # GET /categories/new
